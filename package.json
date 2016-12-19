@@ -81,7 +81,18 @@
     "webpack": "^1.13.1"
   },
   "dependencies": {
+    "body-parser": "^1.15.2",
     "express": "^4.14.0",
-    "isomorphic-fetch": "^2.2.1"
+    "isomorphic-fetch": "^2.2.1",
+    "mongoose": "^4.7.3",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^4.0.0",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "react-dropzone": "^3.7.3",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.1.0",
+    "superagent": "^3.3.1"
   }
 }
