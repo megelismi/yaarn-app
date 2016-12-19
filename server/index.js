@@ -27,3 +27,10 @@ function runServer() {
 if (require.main === module) {
     runServer();
 }
+
+const message = "Panel title";
+
+app.get('/photos', function(req, res) {
+    console.log('server reached')
+    res.status(200).json(message);
+})
