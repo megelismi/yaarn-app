@@ -10,12 +10,13 @@ let text = ""
 class PanelContainer extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = {
-			filter: '',
-			text: '', 
-			imgUrl: '',
-			edits: 'false'
-		}
+		// this.state = {
+		// 	filter: '',
+		// 	text: '', 
+		// 	imgUrl: '',
+		// 	edits: 'false'
+		// }
+
 		this.switchGrayscale = this.switchGrayscale.bind(this);
 		this.switchInvert = this.switchInvert.bind(this);
 		this.switchContrast = this.switchContrast.bind(this);
@@ -67,17 +68,17 @@ class PanelContainer extends React.Component {
 		})
 	}
 
-	componentDidMount() {
+	savePanel() {
+		console.log(this.props)
 		this.props.dispatch(
-			actions.fetchMessage())
+			actions.postPanel(this.props)
+		)
 	}
 
 	render () {
-		console.log('state from main-container', this.state)
 		return (
 			<div className="main-container">
-				<p>{this.props.message}</p>
-				<img className={this.state.filter} src="http://cdn1-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-2.jpg" />
+				<img className={this.props.filter} src={this.props.imgUrl} />
 				<div className="button-container">
 					<button className="filter-button" onClick={this.switchGrayscale}>Grayscale</button>
 					<button className="filter-button" onClick={this.switchInvert}>Invert</button>
@@ -86,25 +87,18 @@ class PanelContainer extends React.Component {
 					<button className="filter-button" onClick={this.switchSepia}>Sepia</button>
 				</div>
 				<form className="description-form" onSubmit={this.handleSubmit.bind(this)}>
-					<div className="story-description" contentEditable={this.state.edits} onFocus={this.makeEdits.bind(this)} suppressContentEditableWarning={true} ref={element => text = element}>Add your story...</div>
+					<div className="story-description" contentEditable={this.props.edits} onFocus={this.makeEdits.bind(this)} suppressContentEditableWarning={true} ref={element => text = element}>{this.props.text}</div>
 					<input className="submit-button" type="submit" value="Save" />
       		</form>
       		<button className="edit-button" onClick={this.makeEdits.bind(this)}>Edit</button>
 				<ImageUpload />
+				<button className="save-panel" onClick={this.savePanel.bind(this)}>Save panel</button>
 			</div>
 		)
 	}
 }
 
 
-const mapStateToProps = (state, props) => ({
-	panel: state.board.panel
-})
+export default connect()(PanelContainer)
 
-export default connect(mapStateToProps)(PanelContainer)
-
-// Storyboard Component
-<div>
-	{this.props.panels.map((panel) =>{<PanelContainer filter={panel.filter} image={panel.image}})}
-</div>
 
