@@ -14,17 +14,10 @@ import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 // import models here
 var Panel = require('./models/panel');
->>>>>>> 3c46165f317beab4bccacc2612fc5c138d1c7c5c
-
-mongoose.Promise = global.Promise;
 
 mongoose.Promise = global.Promise
 
 const app = express();
-// app.use(bodyParser.urlencoded({
-//   extended: true
-// }));
-const jsonParser = bodyParser.json();
 
 const jsonParser = bodyParser.json();
 
@@ -32,7 +25,6 @@ const jsonParser = bodyParser.json();
 
 app.use(express.static(process.env.CLIENT_PATH));
 
-<<<<<<< HEAD
 // ============ Panel ================
 
 // get all panels
@@ -100,49 +92,6 @@ function runServer() {
         });
     });
 }
-=======
-// const message = "Panel title";
-
-app.get('/photos', jsonParser, function(req, res) {
-    console.log("wefjnw;ln!!!")
-    Panel.findOne({_id: "585968cf734d1d400d113aea" })
-    .then(
-      function(panel) {
-        if(!panel) {
-             res.status(404).send({
-                message: 'Title not found'
-            });
-            //  return;
-        }
-        console.log('Panel!', panel)
-        return res.status(200).json(panel);
-      }).catch(function(err) {
-                 res.status(500).send({
-                    message: 'Internal Server Error'
-                });
-    })
-});
-
-
-
-// const HOST = process.env.HOST;
-// const PORT = process.env.PORT || 8080;
-//
-// console.log(`Server running in ${process.env.NODE_ENV} mode`);
-//
-// function runServer() {
-//     return new Promise((resolve, reject) => {
-//         app.listen(PORT, HOST, (err) => {
-//             if (err) {
-//                 console.error(err);
-//                 reject(err);
-//             }
-//
-//             const host = HOST || 'localhost';
-//             console.log(`Listening on ${host}:${PORT}`);
-//         });
-//     });
-// }
 
 var runServer = function(callback) {
   var databaseUri = process.env.DATABASE_URI || global.databaseUri || 'mongodb://mongodb://user:user@ds141088.mlab.com:41088/tell_your_story_app';
@@ -155,7 +104,6 @@ var runServer = function(callback) {
       });
   });
 };
->>>>>>> 3c46165f317beab4bccacc2612fc5c138d1c7c5c
 
 if (require.main === module) {
     runServer();
