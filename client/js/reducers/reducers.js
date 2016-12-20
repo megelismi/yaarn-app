@@ -5,7 +5,23 @@ import * as actions from '../actions/actions'
 
 
 const initialState = {
-	message: ''
+	strip: {
+		name: "", 
+		panels: [
+			{
+				filter: '', 
+				text: 'hi', 
+				imgUrl: '', 
+				edits: ''
+			}, 
+			{
+				filter: '', 
+				text: '', 
+				imgUrl: '', 
+				edits: ''
+			}, 
+		]
+	}
 }
 
 export const mainReducer = (state=initialState, action) => {
@@ -17,3 +33,4 @@ export const mainReducer = (state=initialState, action) => {
 
 	return state
 }
+
