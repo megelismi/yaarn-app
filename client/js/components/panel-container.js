@@ -1,6 +1,7 @@
 import React from 'react'
 import ImageUpload from './image-upload'
 import RichEditorExample from './text-editor'
+import LinkEditorExample from './test-editor'
 import {connect} from 'react-redux'
 import * as actions from '../actions/actions'
 let text = ""
@@ -9,7 +10,7 @@ class PanelContainer extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			class: '',
+			filter: '',
 			text: '', 
 			imgUrl: '',
 			edits: 'false'
@@ -23,38 +24,38 @@ class PanelContainer extends React.Component {
 
 	switchGrayscale() {
 		this.setState({
-			class: 'grayscale'
+			filter: 'grayscale'
 		})
 	}
 
 	switchInvert() {
 		this.setState({
-			class: 'invert'
+			filter: 'invert'
 		})
 	}
 
 	switchContrast() {
 		this.setState({
-			class: 'contrast'
+			filter: 'contrast'
 		})
 	}
 
 	switchHuerotate(){
 		this.setState({
-			class: 'huerotate'
+			filter: 'huerotate'
 		})
 	}
 
 	switchSepia(){
 		this.setState({
-			class: 'sepia'
+			filter: 'sepia'
 		})
 	}
 
 	handleSubmit (event) {
 		event.preventDefault();
 		this.setState({
-			text: text.innerHTML.trim(),
+			text: text.innerText.trim(),
 			edits: "false"
 		})
 	}
@@ -71,11 +72,11 @@ class PanelContainer extends React.Component {
 	}
 
 	render () {
-		// console.log('state from main-container', this.state)
+		console.log('state from main-container', this.state)
 		return (
 			<div className="main-container">
 				<p>{this.props.message}</p>
-				<img className={this.state.class} src="http://cdn1-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-2.jpg" />
+				<img className={this.state.filter} src="http://cdn1-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-2.jpg" />
 				<div className="button-container">
 					<button className="filter-button" onClick={this.switchGrayscale}>Grayscale</button>
 					<button className="filter-button" onClick={this.switchInvert}>Invert</button>
@@ -89,7 +90,6 @@ class PanelContainer extends React.Component {
       		</form>
       		<button className="edit-button" onClick={this.makeEdits.bind(this)}>Edit</button>
 				<ImageUpload />
-				<RichEditorExample />
 			</div>
 		)
 	}
@@ -97,7 +97,13 @@ class PanelContainer extends React.Component {
 
 
 const mapStateToProps = (state, props) => ({
-	message: state.message
+	panel: state.board.panel
 })
 
 export default connect(mapStateToProps)(PanelContainer)
+
+// Storyboard Component
+<div>
+	{this.props.panels.map((panel) =>{<PanelContainer filter={panel.filter} image={panel.image}})}
+</div>
+
