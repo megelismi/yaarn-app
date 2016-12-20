@@ -7,9 +7,6 @@ import mongoose from 'mongoose'
 import Panel from './models/panel'
 import Message from './models/message'
 
-// import models here
-var Panel = require('./models/panel');
-
 mongoose.Promise = global.Promise
 
 const app = express();
@@ -66,7 +63,7 @@ app.post('/panel', jsonParser, (req, res) => {
 
 app.delete('/panel/:id', (req, res) => {
   Panel.findByIdAndRemove(req.params.id)
-    .then(() => res.status(200))
+    .then(() => res.status(200).end())
     .catch(err => console.log('delete error'))
 })
 
