@@ -3,6 +3,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 // import models here
+var Panel = require('./models/panel');
 
 mongoose.Promise = global.Promise;
 
@@ -14,12 +15,27 @@ const jsonParser = bodyParser.json();
 
 app.use(express.static(process.env.CLIENT_PATH));
 
-const message = "Panel title";
+// const message = "Panel title";
 
-app.get('/photos', function(req, res) {
-    console.log('server reached')
-    res.status(200).json(message);
-})
+app.get('/photos', jsonParser, function(req, res) {
+    console.log("wefjnw;ln!!!")
+    Panel.findOne({_id: "585968cf734d1d400d113aea" })
+    .then(
+      function(panel) {
+        if(!panel) {
+             res.status(404).send({
+                message: 'Title not found'
+            });
+            //  return;
+        }
+        console.log('Panel!', panel)
+        return res.status(200).json(panel);
+      }).catch(function(err) {
+                 res.status(500).send({
+                    message: 'Internal Server Error'
+                });
+    })
+});
 
 
 
