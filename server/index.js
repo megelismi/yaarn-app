@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import 'babel-polyfill'
 import express from 'express'
 import bodyParser from 'body-parser'
@@ -7,11 +6,7 @@ import mongoose from 'mongoose'
 // Mongoose
 import Panel from './models/panel'
 import Message from './models/message'
-=======
-import 'babel-polyfill';
-import express from 'express';
-import bodyParser from 'body-parser';
-import mongoose from 'mongoose';
+
 // import models here
 var Panel = require('./models/panel');
 
