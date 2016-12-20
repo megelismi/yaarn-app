@@ -3,7 +3,7 @@ import Dropzone from 'react-dropzone';
 import request from 'superagent';
 
 
-const CLOUDINARY_UPLOAD_PRESET = 'lbvileyb';
+const CLOUDINARY_UPLOAD_PRESET = '284981691241697';
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/megelismi/upload';
 
 export default class ImageUpload extends React.Component {
@@ -44,6 +44,7 @@ export default class ImageUpload extends React.Component {
 		return (
 			<div className="FileUpload">
 				<Dropzone
+					multiple={false}
 					accept="image/*"
 					onDrop={this.onImageDrop.bind(this)}>
 					<p>Drop an image or click to select a file to upload. </p>
