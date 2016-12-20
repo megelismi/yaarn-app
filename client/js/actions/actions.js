@@ -9,11 +9,11 @@ export const getMessage = message => ({
 })
 
 
-// export const GET_IMAGE_URL = 'GET_IMAGE_URL'
-// export const getImageUrl = url => ({
-// 	type: GET_IMAGE_URL, 
-// 	url
-// })
+export const GET_PANEL_DATA = 'GET_PANEL_DATA'
+export const getImageUrl = panel => ({
+	type: GET_PANEL_DATA, 
+	panel
+})
 
 export const fetchMessage = () => {
 	return dispatch => {
