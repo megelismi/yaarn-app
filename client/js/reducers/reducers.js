@@ -58,7 +58,13 @@ export const mainReducer = (state=initialState, action) => {
 		}
 	}
 	else if (action.type === actions.POST_PANEL_SUCCESS) {
-		return state
+		return {
+			...state,
+			strip: {
+				...state.strip,
+				panels: [...state.strip.panels, action.panel]
+			}
+		}
 	}
 
 	return state

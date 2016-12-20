@@ -17,7 +17,7 @@ export const postPanelError = error => ({
 
 export const postPanel = panel => {
 	return dispatch => {
-		const url = "http://localhost:8080/panels"
+		const url = "http://localhost:8080/panel"
 		return fetch(url, {
 			method: 'post', 
 			headers: {
@@ -34,7 +34,7 @@ export const postPanel = panel => {
 			return response
 		})
 		.then(response => response.json())
-		.then(console.log(data))
+		.then(data => postPanelSuccess(data))
 		.catch(error => dispatch(postPanelError(error)))
 	}
 }
