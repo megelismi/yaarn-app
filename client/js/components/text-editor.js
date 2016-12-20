@@ -50,7 +50,7 @@ import {Editor, EditorState, RichUtils} from 'draft-js';
         }
 
         render() {
-          console.log(this.state)
+          // console.log(this.state)
           const {editorState} = this.state;
 
           // If the user changes block type before entering any text, we can
