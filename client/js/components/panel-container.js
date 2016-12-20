@@ -1,3 +1,4 @@
+
 import React from 'react'
 import ImageUpload from './image-upload'
 import RichEditorExample from './text-editor'
@@ -10,7 +11,7 @@ class PanelContainer extends React.Component {
 		super(props)
 		this.state = {
 			class: '',
-			text: '', 
+			text: '',
 			imgUrl: '',
 			edits: 'false'
 		}
