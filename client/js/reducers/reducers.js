@@ -10,7 +10,6 @@ const initialState = {
 
 export const mainReducer = (state=initialState, action) => {
 	if (action.type === actions.GET_MESSAGE) {
-		console.log('get message reached', state)
 		return {
 			...state, message: action.message
 		}
