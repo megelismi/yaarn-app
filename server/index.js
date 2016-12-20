@@ -67,23 +67,6 @@ app.delete('/panel/:id', (req, res) => {
     .catch(err => console.log('delete error'))
 })
 
-const DB_URL = 'mongodb://user:user@ds141088.mlab.com:41088/tell_your_story_app'
-mongoose.connect(DB_URL)
-
-function runServer() {
-
-    return new Promise((resolve, reject) => {
-        app.listen(PORT, HOST, (err) => {
-            if (err) {
-                console.error(err);
-                reject(err);
-            }
-
-            const host = HOST || 'localhost';
-            console.log(`Listening on ${host}:${PORT}`);
-        });
-    });
-}
 
 var runServer = function(callback) {
   var databaseUri = process.env.DATABASE_URI || global.databaseUri || 'mongodb://mongodb://user:user@ds141088.mlab.com:41088/tell_your_story_app';
