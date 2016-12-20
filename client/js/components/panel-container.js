@@ -1,32 +1,24 @@
 import React from 'react'
-import Form from './form'
 import ImageUpload from './image-upload'
-import RichEditorExample from './description'
+import RichEditorExample from './text-editor'
 import {connect} from 'react-redux'
 import * as actions from '../actions/actions'
 let text = ""
-class MainContainer extends React.Component {
+
+class PanelContainer extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
 			class: '',
 			text: '', 
 			imgUrl: '',
-			edits: 'false',
-			textBoxRef: ""
+			edits: 'false'
 		}
 		this.switchGrayscale = this.switchGrayscale.bind(this);
 		this.switchInvert = this.switchInvert.bind(this);
 		this.switchContrast = this.switchContrast.bind(this);
 		this.switchHuerotate = this.switchHuerotate.bind(this);
 		this.switchSepia = this.switchSepia.bind(this);
-		this.onInputSubmit = this.onInputSubmit.bind(this);
-	}
-
-	onInputSubmit(textInput) {
-		this.setState({
-			text: textInput
-		})
 	}
 
 	switchGrayscale() {
@@ -108,4 +100,4 @@ const mapStateToProps = (state, props) => ({
 	message: state.message
 })
 
-export default connect(mapStateToProps)(MainContainer)
+export default connect(mapStateToProps)(PanelContainer)
