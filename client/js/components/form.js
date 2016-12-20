@@ -8,6 +8,7 @@ const TextBox = props => {
 		props.onSubmit(inputBox.value)
 	}
 
+			// <div contenteditable onInput={this.dispatch(userEditedSomeText)}></div>
 	return (
 		<div>
 			<form className="user-form" onSubmit={grabInput}>

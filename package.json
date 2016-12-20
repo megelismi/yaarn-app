@@ -82,6 +82,7 @@
   },
   "dependencies": {
     "body-parser": "^1.15.2",
+    "draft-js": "^0.9.1",
     "express": "^4.14.0",
     "isomorphic-fetch": "^2.2.1",
     "mongoose": "^4.7.3",
@@ -89,6 +90,7 @@
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^4.0.0",
     "react": "^15.4.1",
+    "react-contenteditable": "^2.0.1",
     "react-dom": "^15.4.1",
     "react-dropzone": "^3.7.3",
     "react-redux": "^5.0.1",
