@@ -10,11 +10,13 @@ export class IndividualBoard extends React.Component {
       editPanel: false
     }
     this.deletePanel = this.deletePanel.bind(this)
+    this.editPanel = this.editPanel.bind(this)
     
     }
 
     componentDidMount() {
       this.props.dispatch(actions.getPanel());
+      //cause new panel to be rendered
     }
 
     editPanel() {
@@ -30,18 +32,19 @@ export class IndividualBoard extends React.Component {
     }
 
     deletePanel(id) {
+      console.log('delete panel called on', id)
       this.props.dispatch(
         actions.deletePanel(id))
     }
 
     render() {
-      console.log('state', this.state)
+
       let panelsList = this.props.panels.map((panel, index) => {
-        return <li key={index}>
+        return <li key={panel._id}>
           <div className="strip-panel-img"><img className="strip-images" src={panel.imgUrl} />
             <p className="strip-description">{panel.text}</p>
-             <button className="strip-button" onClick={this.editPanel.bind(this)} >Edit</button>
-             <button className="strip-button" onClick={this.deletePanel(panel._id)} >Delete</button>
+             <button className="strip-button" onClick={this.editPanel} >Edit</button>
+             <button className="strip-button" onClick={() => {this.deletePanel(panel._id)}} >Delete</button>
           </div>
         </li>
       })
@@ -54,19 +57,17 @@ export class IndividualBoard extends React.Component {
           {this.state.editPanel ? <PanelContainer filter='' imgUrl='http://cdn1-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-2.jpg' edits='true' text='you did it!' cancelPanel={this.cancelPanel.bind(this)} /> : null}
         </div>
       )
-
     }
 }
 
-// // Using inline-styles for state
-// <li className='todo-list__item'
-//  style={(item.complete) ? styles.complete : {}} />
 
 const mapStateToProps = (state, props) => ({
-	panels: state.strip.panels
+	panels: state.strip.panels,
+  newPanel: state.strip.newPanel
 })
 
 export default connect(mapStateToProps)(IndividualBoard)
+
 
 // <PanelContainer filter={panel.filter} imgUrl={panel.imgUrl} edits={panel.edits} text= />
 

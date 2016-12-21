@@ -41,6 +41,7 @@ export default class ImageUpload extends React.Component {
 	}
 
 	render() {
+		console.log(this.state)
 		return (
 			<div className="FileUpload">
 				<Dropzone

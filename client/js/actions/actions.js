@@ -14,7 +14,7 @@ export const getPanelError = error => ({
 	error
 })
 
-export const getPanel = panel => {
+export const getPanel = () => {
 	return dispatch => {
 		const url = "http://localhost:8080/panel"
 		return fetch(url)
@@ -69,12 +69,7 @@ export const postPanel = panel => {
 	}
 }
 
-
-export const DELETE_PANEL_SUCCESS = 'DELETE_PANEL_SUCCESS';
-export const deletePanelSuccess = id => ({
-	type: DELETE_PANEL_SUCCESS, 
-	id
-})
+//delete panel success handled by getPanel()
 
 export const DELETE_PANEL_ERROR = 'DELETE_PANEL_ERROR';
 export const deletePanelError = error => ({
@@ -99,7 +94,7 @@ export const deletePanel = id => {
 			return response 
 	})
 	.then(response => response.json())
-	.then(data => console.log(data))
-	.catch(error => dispatch(postPanelError(error)))
+	.then(data => dispatch(getPanel()))
+	.catch(error => dispatch(deletePanelError(error)))
 	}
 }
