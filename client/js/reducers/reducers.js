@@ -7,55 +7,19 @@ import * as actions from '../actions/actions'
 const initialState = {
 	strip: {
 		editPanel: false,  // true: put request ... false: post request
-		panels: [
-		  {
-		    "_id": "5859a70e39577c1bf95f9c45",
-		    "filter": "grayscale",
-		    "text": "Caption 4",
-		    "imgUrl": "http://cdn1-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-2.jpg",
-		    "edits": false,
-		    "__v": 0
-		  },
-		  {
-		    "_id": "5859a9cd93ad291ca1f86041",
-		    "filter": "grayscale",
-		    "text": "Caption 2",
-		    "imgUrl": "http://cdn1-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-2.jpg",
-		    "edits": false,
-		    "__v": 0
-		  },
-		  {
-		    "_id": "5859abff85f8b51d1b6e71fd",
-		    "filter": "grayscale",
-		    "text": "Caption 6",
-		    "imgUrl": "http://cdn1-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-2.jpg",
-		    "edits": false,
-		    "__v": 0
-		  },
-		  {
-		    "_id": "5859ac42e0a2341d36c5c88c",
-		    "filter": "grayscale",
-		    "text": "Caption 7",
-		    "imgUrl": "http://cdn1-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-2.jpg",
-		    "edits": false,
-		    "__v": 0
-		  },
-		  {
-		    "_id": "5859ac4be0a2341d36c5c88d",
-		    "filter": "grayscale",
-		    "text": "Caption 7",
-		    "imgUrl": "http://cdn1-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-2.jpg",
-		    "edits": false,
-		    "__v": 0
-		  }
-		]
+		panels: []
 	}
 }
-
+	// panels: [...state.strip.panels: action.panel]
 export const mainReducer = (state=initialState, action) => {
-	if (action.type === actions.GET_MESSAGE) {
+	if (action.type === actions.GET_PANEL_SUCCESS) {
+		console.log('action panel', action.panel)
 		return {
-			...state, message: action.message
+			...state,
+			strip: {
+				...state.strip,
+				panels: action.panel
+			}
 		}
 	}
 	else if (action.type === actions.POST_PANEL_SUCCESS) {
@@ -67,6 +31,9 @@ export const mainReducer = (state=initialState, action) => {
 			}
 		}
 	}
+	// else if (action.type === actions.DELETE_PANEL_SUCCESS) {
+		
+	// }
 
 	return state
 }

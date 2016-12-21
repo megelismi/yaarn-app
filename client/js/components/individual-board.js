@@ -9,12 +9,13 @@ export class IndividualBoard extends React.Component {
     this.state = {
       editPanel: false
     }
+    this.deletePanel = this.deletePanel.bind(this)
     
     }
 
-    // componentDidMount() {
-    //   this.props.dispatch(actions.fetchPanels());
-    // }
+    componentDidMount() {
+      this.props.dispatch(actions.getPanel());
+    }
 
     editPanel() {
       this.setState({
@@ -28,8 +29,9 @@ export class IndividualBoard extends React.Component {
       })
     }
 
-    deletePanel() {
-      console.log('deleted')
+    deletePanel(id) {
+      this.props.dispatch(
+        actions.deletePanel(id))
     }
 
     render() {
@@ -39,7 +41,7 @@ export class IndividualBoard extends React.Component {
           <div className="strip-panel-img"><img className="strip-images" src={panel.imgUrl} />
             <p className="strip-description">{panel.text}</p>
              <button className="strip-button" onClick={this.editPanel.bind(this)} >Edit</button>
-             <button className="strip-button" onClick={this.deletePanel.bind(this)} >Delete</button>
+             <button className="strip-button" onClick={this.deletePanel(panel._id)} >Delete</button>
           </div>
         </li>
       })

@@ -24,11 +24,11 @@ app.get('/panel', jsonParser, (req, res) => {
     console.log('Get panel called')
     Panel.find({}, (err, data) => {
         if (err) {
+          console.log('error was made')
             console.log(err)
             res.send(err)
         }
-        console.log('Get panel: ', data)
-        res.json(data)
+        res.status(200).json(data)
     })
 })
 
@@ -72,12 +72,12 @@ app.put('/panel/:id', jsonParser, (req, res) => {
 })
 
 // delete panel
+
 app.delete('/panel/:id', (req, res) => {
   Panel.findByIdAndRemove(req.params.id)
-    .then(() => res.status(200).end())
+    .then(() => res.status(200).json(req.params.id))
     .catch(err => console.log('delete error'))
 })
-
 
 var runServer = function(callback) {
   var databaseUri = process.env.DATABASE_URI || global.databaseUri || 'mongodb://mongodb://user:user@ds141088.mlab.com:41088/tell_your_story_app';
@@ -97,3 +97,5 @@ if (require.main === module) {
 
 exports.app = app;
 exports.runServer = runServer;
+
+
