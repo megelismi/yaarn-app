@@ -6,19 +6,34 @@ import PanelContainer from './panel-container'
 export class IndividualBoard extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      editPanel: false
+    }
+    
     }
 
     // componentDidMount() {
     //   this.props.dispatch(actions.fetchPanels());
     // }
 
+    editPanel() {
+      this.setState({
+        editPanel: true
+      })
+    }
+
+    deletePanel() {
+      console.log('deleted')
+    }
+
     render() {
+      console.log('state', this.state)
       let panelsList = this.props.panels.map((panel, index) => {
         return <li key={index}>
           <div className="strip-panel-img"><img className="strip-images" src={panel.imgUrl} />
             <p className="strip-description">{panel.text}</p>
-             <button className="strip-button" >Edit</button>
-             <button className="strip-button" >Delete</button>
+             <button className="strip-button" onClick={this.editPanel.bind(this)} >Edit</button>
+             <button className="strip-button" onClick={this.deletePanel.bind(this)} >Delete</button>
           </div>
         </li>
       })
@@ -28,11 +43,18 @@ export class IndividualBoard extends React.Component {
           <ul className="listOfPanels">
             {panelsList}
           </ul>
+          {this.state.editPanel ? <PanelContainer filter='' imgUrl='http://cdn1-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-2.jpg' edits='true' text='you did it!' /> : null}
         </div>
       )
 
     }
 }
+
+const mapStateToProps = (state, props) => ({
+	panels: state.strip.panels
+})
+
+export default connect(mapStateToProps)(IndividualBoard)
 
 // <PanelContainer filter={panel.filter} imgUrl={panel.imgUrl} edits={panel.edits} text= />
 
@@ -43,8 +65,3 @@ export class IndividualBoard extends React.Component {
               //     <button type="button">Previous</button>
               //     <button type="button">Next</button>
               // </li>
-const mapStateToProps = (state, props) => ({
-	panels: state.strip.panels
-})
-
-export default connect(mapStateToProps)(IndividualBoard)

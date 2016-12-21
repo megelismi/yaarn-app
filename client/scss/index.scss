@@ -55,29 +55,30 @@ h1 {
     width: 41px;
 }
 
-.edit-border {
-    border: 2px lightblue solid;
-}
 
 .placeholder {
-    color: lightgray;
+  color: lightgray;
 }
 
 .text-box {
-/*	border: 1px solid gray;
-	border-radius: 4px;*/
 	width: 400px;
 	height: auto;
 }
 
 
-.main-container {
+.panel-container {
 	display: inline-flex;
 	flex-direction: column;
 	width: 500px;
-	height: auto;
-/*	background-color: red;*/
-	margin: 0 auto;
+	height: 626px;
+  margin-left: -250px;
+  margin-top: -313px;
+  background-color: white;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  border: 1px gray solid;
+  transition: opacity 500ms ease;
 }
 
 .button-container {
@@ -118,6 +119,10 @@ img {
 .huerotate {
     -webkit-filter: hue-rotate(180deg);
     filter: hue-rotate(180deg);
+}
+
+.save-description-button, .edit-description-button {
+  width: auto;
 }
 
 

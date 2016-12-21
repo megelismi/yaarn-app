@@ -71,7 +71,7 @@ class PanelContainer extends React.Component {
 
 	render () {
 		return (
-			<div className="main-container">
+			<div className="panel-container">
 				<img className={this.props.filter} src={this.props.imgUrl} />
 				<div className="button-container">
 					<button className="filter-button" onClick={this.switchGrayscale}>Grayscale</button>
@@ -82,9 +82,9 @@ class PanelContainer extends React.Component {
 				</div>
 				<form className="description-form" onSubmit={this.handleSubmit.bind(this)}>
 					<div className="story-description" contentEditable={this.props.edits} onFocus={this.makeEdits.bind(this)} suppressContentEditableWarning={true} ref={element => text = element}>{this.props.text}</div>
-					<input className="submit-button" type="submit" value="Save" />
+					<input className="save-description-button" type="submit" value="Save description" />
       		</form>
-      		<button className="edit-button" onClick={this.makeEdits.bind(this)}>Edit</button>
+      		<button className="edit-description-button" onClick={this.makeEdits.bind(this)}>Edit description</button>
 				<ImageUpload />
 				<button className="save-panel" onClick={this.savePanel.bind(this)}>Save panel</button>
 			</div>
