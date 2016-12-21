@@ -3,7 +3,7 @@ import Dropzone from 'react-dropzone';
 import request from 'superagent';
 
 
-const CLOUDINARY_UPLOAD_PRESET = 'lbvileyb';
+const CLOUDINARY_UPLOAD_PRESET = 'e7zwclsa';
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/megelismi/upload';
 
 export default class ImageUpload extends React.Component {

@@ -10,13 +10,7 @@ let text = ""
 class PanelContainer extends React.Component {
 	constructor(props) {
 		super(props)
-		// this.state = {
-		// 	filter: '',
-		// 	text: '', 
-		// 	imgUrl: '',
-		// 	edits: 'false'
-		// }
-
+	
 		this.switchGrayscale = this.switchGrayscale.bind(this);
 		this.switchInvert = this.switchInvert.bind(this);
 		this.switchContrast = this.switchContrast.bind(this);

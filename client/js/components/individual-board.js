@@ -14,11 +14,12 @@ export class IndividualBoard extends React.Component {
 
     render() {
       let panelsList = this.props.panels.map((panel, index) => {
-        return <li>
-          <div className="strip-panel-img"><img src={panel.imgUrl} />
-            <p>{panel.text}</p>
+        return <li key={index}>
+          <div className="strip-panel-img"><img className="strip-images" src={panel.imgUrl} />
+            <p className="strip-description">{panel.text}</p>
+             <button className="strip-button" >Edit</button>
+             <button className="strip-button" >Delete</button>
           </div>
-          <button >New</button>
         </li>
       })
 
