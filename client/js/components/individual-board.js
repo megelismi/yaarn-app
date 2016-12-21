@@ -22,6 +22,12 @@ export class IndividualBoard extends React.Component {
       })
     }
 
+    cancelPanel() {
+      this.setState({
+        editPanel: false
+      })
+    }
+
     deletePanel() {
       console.log('deleted')
     }
@@ -43,12 +49,16 @@ export class IndividualBoard extends React.Component {
           <ul className="listOfPanels">
             {panelsList}
           </ul>
-          {this.state.editPanel ? <PanelContainer filter='' imgUrl='http://cdn1-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-2.jpg' edits='true' text='you did it!' /> : null}
+          {this.state.editPanel ? <PanelContainer filter='' imgUrl='http://cdn1-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-2.jpg' edits='true' text='you did it!' cancelPanel={this.cancelPanel.bind(this)} /> : null}
         </div>
       )
 
     }
 }
+
+// // Using inline-styles for state
+// <li className='todo-list__item'
+//  style={(item.complete) ? styles.complete : {}} />
 
 const mapStateToProps = (state, props) => ({
 	panels: state.strip.panels

@@ -86,7 +86,8 @@ class PanelContainer extends React.Component {
       		</form>
       		<button className="edit-description-button" onClick={this.makeEdits.bind(this)}>Edit description</button>
 				<ImageUpload />
-				<button className="save-panel" onClick={this.savePanel.bind(this)}>Save panel</button>
+				<button className="save-panel-button" onClick={this.savePanel.bind(this)}>Save panel</button>
+				<button className="cancel-panel-button" onClick={this.props.cancelPanel}>Cancel</button>
 			</div>
 		)
 	}
