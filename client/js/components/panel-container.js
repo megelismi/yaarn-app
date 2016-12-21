@@ -5,6 +5,13 @@ import RichEditorExample from './text-editor'
 import LinkEditorExample from './test-editor'
 import {connect} from 'react-redux'
 import * as actions from '../actions/actions'
+import request from 'superagent';
+
+
+const CLOUDINARY_UPLOAD_PRESET = 'e7zwclsa';
+const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/megelismi/upload';
+
+
 let text = ""
 
 class PanelContainer extends React.Component {
@@ -17,6 +24,33 @@ class PanelContainer extends React.Component {
 		this.switchHuerotate = this.switchHuerotate.bind(this);
 		this.switchSepia = this.switchSepia.bind(this);
 	}
+
+
+	onImageDrop(files) {
+		console.log('onImageDrop happened')
+		this.handleImageUpload(files[0])
+	}
+
+	handleImageUpload(file) {
+		console.log('handleImageUpload happens')
+		let upload = request.post(CLOUDINARY_UPLOAD_URL)
+									.field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
+									.field('file', file)
+
+		upload.end((err, response) => {
+			console.log('upload finished')
+			if (err) {
+				console.log(err)
+			}
+
+			if(response.body.secure_url !== '') {
+				console.log('about to dispatch action')
+				this.props.dispatch(actions.saveImageUrl(response.body.secure_url))
+			}
+			console.log('end of upload callback')
+		});
+	}
+
 
 	switchGrayscale() {
 		this.setState({
@@ -85,7 +119,7 @@ class PanelContainer extends React.Component {
 					<input className="save-description-button" type="submit" value="Save description" />
       		</form>
       		<button className="edit-description-button" onClick={this.makeEdits.bind(this)}>Edit description</button>
-				<ImageUpload />
+				<ImageUpload onDrop={this.onImageDrop.bind(this)} />
 				<button className="save-panel-button" onClick={this.savePanel.bind(this)}>Save panel</button>
 				<button className="cancel-panel-button" onClick={this.props.cancelPanel}>Cancel</button>
 			</div>

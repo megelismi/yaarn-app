@@ -2,6 +2,13 @@
 
 import 'isomorphic-fetch'
 
+
+export const SAVE_IMAGE_URL = 'SAVE_IMAGE_URL'
+export const saveImageUrl = url => ({
+	type: SAVE_IMAGE_URL, 
+	url
+})
+
 export const GET_PANEL_SUCCESS = 'GET_PANEL_SUCCESS'
 export const getPanelSuccess = panel => ({
 	type: GET_PANEL_SUCCESS,
