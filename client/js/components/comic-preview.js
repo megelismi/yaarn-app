@@ -7,6 +7,7 @@ export class ComicPreview extends React.Component {
     super(props)
     this.deletePanel = this.deletePanel.bind(this)
     this.editPanel = this.editPanel.bind(this)
+
   }
 
   deletePanel(id) {
@@ -16,10 +17,6 @@ export class ComicPreview extends React.Component {
   }
 
   editPanel(content) {
-    // this.setState({
-    //   editPanel: true
-    // })
-    console.log(this.props)
     this.props.dispatch(actions.savePanelInProgress(content))
   }
 
@@ -29,7 +26,7 @@ export class ComicPreview extends React.Component {
       <li >
         <div className="strip-panel-img"><img className="strip-images" src={this.props.content.imgUrl} />
           <p className="strip-description">{this.props.content.text}</p>
-           <button className="strip-button" onClick={this.editPanel(this.props.content)} >Edit</button>
+           <button className="strip-button" onClick={() => {this.editPanel(this.props.content)}} >Edit</button>
            <button className="strip-button" onClick={() => {this.deletePanel(this.props.content._id)}} >Delete</button>
         </div>
       </li>

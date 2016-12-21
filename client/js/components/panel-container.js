@@ -22,6 +22,12 @@ class PanelContainer extends React.Component {
 		this.switchContrast = this.switchContrast.bind(this);
 		this.switchHuerotate = this.switchHuerotate.bind(this);
 		this.switchSepia = this.switchSepia.bind(this);
+		this.closePanel = this.closePanel.bind(this)
+
+		this.filters = [
+			["grayscale", this.switchGrayscale],
+			["sepia", this.switchSepia]
+		]
 	}
 
 
@@ -89,10 +95,10 @@ class PanelContainer extends React.Component {
 		})
 	}
 
-	makeEdits() {
-		this.setState({
-			edits: "true"
-		})
+	closePanel(){
+		console.log('close panel called')
+		this.props.dispatch(
+			actions.closePanel())
 	}
 
 	savePanel() {
@@ -107,6 +113,7 @@ class PanelContainer extends React.Component {
 			<div className="panel-container">
 				<img className={this.props.filter} src={this.props.imgUrl} />
 				<div className="button-container">
+					{this.filter.map(([name, func]) => <button className="filter-button" onClick={func}>name</button>)}
 					<button className="filter-button" onClick={this.switchGrayscale}>Grayscale</button>
 					<button className="filter-button" onClick={this.switchInvert}>Invert</button>
 					<button className="filter-button" onClick={this.switchContrast}>Contrast</button>
@@ -114,17 +121,23 @@ class PanelContainer extends React.Component {
 					<button className="filter-button" onClick={this.switchSepia}>Sepia</button>
 				</div>
 				<form className="description-form" onSubmit={this.handleSubmit.bind(this)}>
-					<div className="story-description" contentEditable={this.props.edits} onFocus={this.makeEdits.bind(this)} suppressContentEditableWarning={true} ref={element => text = element}>{this.props.text}</div>
+					<div className="story-description" contentEditable={this.props.edits} suppressContentEditableWarning={true} ref={element => text = element}>{this.props.text}</div>
 					<input className="save-description-button" type="submit" value="Save description" />
       		</form>
-      		<button className="edit-description-button" onClick={this.makeEdits.bind(this)}>Edit description</button>
+      		<button className="edit-description-button">Edit description</button>
 				<ImageUpload onDrop={this.onImageDrop.bind(this)} />
-				<button className="save-panel-button" onClick={this.savePanel.bind(this)}>Save panel</button>
-				<button className="cancel-panel-button" onClick={this.props.cancelPanel}>Cancel</button>
+				<button className="save-panel-button">Save panel</button>
+				<button className="cancel-panel-button" onClick={this.closePanel}>Cancel</button>
 			</div>
 		)
 	}
 }
 
 
-export default connect()(PanelContainer)
+const mapStateToProps = (state, props) => ({
+  text: state.strip.panelInProgress.text,
+  imgUrl: state.strip.panelInProgress.imgUrl, 
+  filter: state.strip.panelInProgress.filter
+})
+
+export default connect(mapStateToProps)(PanelContainer)

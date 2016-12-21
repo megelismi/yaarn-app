@@ -111,3 +111,8 @@ export const savePanelInProgress = (content) => ({
 	type: SAVE_PANEL_IN_PROGRESS,
 	content
 })
+
+export const CLOSE_PANEL = 'CLOSE_PANEL'
+export const closePanel = () => ({
+	type: CLOSE_PANEL
+})

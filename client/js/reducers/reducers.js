@@ -11,14 +11,15 @@ const initialState = {
 		panels: [],
 		newPanel: {
     		"filter": "",
-    		"text": "Tell your story here...",
+    		"text": "Tell your story...",
     		"imgUrl": "http://cdn1-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-2.jpg",
     		"edits": false,
   		},
+  		modalUp: false,
  		panelInProgress: {
  			"filter": "",
-    		"text": "Tell your story here...",
-    		"imgUrl": "http://cdn1-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-2.jpg",
+    		"text": "",
+    		"imgUrl": "",
     		"edits": false,
  		}
 	}
@@ -48,9 +49,13 @@ export const mainReducer = (state=initialState, action) => {
 		return update(state, {strip: {panelInProgress: {imgUrl: {$set: action.url}}}})
 
 	}
-	else if (action.type === actions.SAVE_PANEL_IN_PROGRESS) {
+	else if (action.type === actions.SAVE_PANEL_IN_PROGRESS) { // rename to begin edit/new
 		console.log('action SAVE_PANEL_IN_PROGRESS: ', action.content)
-		return update(state, {strip: {panelInProgress: { $set: action.content }}})
+		return update(state, {strip: {modalUp: {$set: true }, panelInProgress: {$set: action.content }}})
+	}
+	else if (action.type === actions.CLOSE_PANEL) {
+		console.log('close panel action called in reducer')
+		return update(state, {strip: {modalUp: {$set: false}}})
 	}
 
 	return state

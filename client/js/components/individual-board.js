@@ -26,11 +26,11 @@ export class IndividualBoard extends React.Component {
     //   console.log(this.props)
     // }
 
-    cancelPanel() {
-      this.setState({
-        editPanel: false
-      })
-    }
+    // cancelPanel() {
+    //   this.setState({
+    //     editPanel: false
+    //   })
+    // }
 
     // deletePanel(id) {
     //   console.log('delete panel called on', id)
@@ -46,12 +46,14 @@ export class IndividualBoard extends React.Component {
         )
       })
 
+      //variables filter, 
+
       return (
         <div className="indivBoard">
           <ul className="listOfPanels">
             {panelsList}
           </ul>
-          // {this.state.editPanel ? <PanelContainer filter='' imgUrl='http://cdn1-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-2.jpg' edits='true' text='you did it!' cancelPanel={this.cancelPanel.bind(this)} /> : null}
+           {this.props.modalUp ? <PanelContainer /> : null}
         </div>
       )
     }
@@ -61,24 +63,10 @@ export class IndividualBoard extends React.Component {
 const mapStateToProps = (state, props) => ({
 	panels: state.strip.panels,
   newPanel: state.strip.newPanel,
-  panelInProgress: state.strip.panelInProgress
+  panelInProgress: state.strip.panelInProgress,
+  modalUp: state.strip.modalUp
 })
 
 export default connect(mapStateToProps)(IndividualBoard)
+//<PanelContainer filter='' imgUrl='' edits='true' text='' cancelPanel={this.cancelPanel.bind(this)} /> 
 
-// <li key={panel._id}>
-//   <div className="strip-panel-img"><img className="strip-images" src={panel.imgUrl} />
-//     <p className="strip-description">{panel.text}</p>
-//      <button className="strip-button" onClick={this.editPanel} >Edit</button>
-//      <button className="strip-button" onClick={() => {this.deletePanel(panel._id)}} >Delete</button>
-//   </div>
-// </li>
-// <PanelContainer filter={panel.filter} imgUrl={panel.imgUrl} edits={panel.edits} text= />
-
-              // <li>
-              //     <img className="panelImage" src= ></img>
-              //     <div className="caption"></div>
-              //     <button type="button">Edit</button>
-              //     <button type="button">Previous</button>
-              //     <button type="button">Next</button>
-              // </li>
