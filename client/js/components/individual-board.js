@@ -60,7 +60,8 @@ export class IndividualBoard extends React.Component {
 
 const mapStateToProps = (state, props) => ({
 	panels: state.strip.panels,
-  newPanel: state.strip.newPanel
+  newPanel: state.strip.newPanel,
+  panelInProgress: state.strip.panelInProgress
 })
 
 export default connect(mapStateToProps)(IndividualBoard)

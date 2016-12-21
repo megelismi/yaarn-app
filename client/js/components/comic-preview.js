@@ -15,11 +15,12 @@ export class ComicPreview extends React.Component {
       actions.deletePanel(id))
   }
 
-  editPanel() {
+  editPanel(content) {
     // this.setState({
     //   editPanel: true
     // })
     console.log(this.props)
+    this.props.dispatch(actions.savePanelInProgress(content))
   }
 
   render() {
@@ -28,7 +29,7 @@ export class ComicPreview extends React.Component {
       <li >
         <div className="strip-panel-img"><img className="strip-images" src={this.props.content.imgUrl} />
           <p className="strip-description">{this.props.content.text}</p>
-           <button className="strip-button" onClick={this.editPanel} >Edit</button>
+           <button className="strip-button" onClick={this.editPanel(this.props.content)} >Edit</button>
            <button className="strip-button" onClick={() => {this.deletePanel(this.props.content._id)}} >Delete</button>
         </div>
       </li>

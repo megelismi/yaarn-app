@@ -25,7 +25,6 @@ const initialState = {
 }
 	// panels: [...state.strip.panels: action.panel]
 export const mainReducer = (state=initialState, action) => {
-	console.log(action, state)
 	if (action.type === actions.GET_PANEL_SUCCESS) {
 		return {
 			...state,
@@ -48,6 +47,10 @@ export const mainReducer = (state=initialState, action) => {
 	else if (action.type === actions.SAVE_IMAGE_URL) {
 		return update(state, {strip: {panelInProgress: {imgUrl: {$set: action.url}}}})
 
+	}
+	else if (action.type === actions.SAVE_PANEL_IN_PROGRESS) {
+		console.log('action SAVE_PANEL_IN_PROGRESS: ', action.content)
+		return update(state, {strip: {panelInProgress: { $set: action.content }}})
 	}
 
 	return state
