@@ -5,7 +5,8 @@ import * as actions from '../actions/actions'
 
 
 const initialState = {
-	strip: { 
+	strip: {
+		editPanel: false,  // true: put request ... false: post request
 		panels: [
 		  {
 		    "_id": "5859a70e39577c1bf95f9c45",
@@ -69,4 +70,3 @@ export const mainReducer = (state=initialState, action) => {
 
 	return state
 }
-

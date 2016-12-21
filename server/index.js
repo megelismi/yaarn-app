@@ -61,6 +61,17 @@ app.post('/panel', jsonParser, (req, res) => {
   // res.status(200)
 })
 
+// put panel
+app.put('/panel/:id', jsonParser, (req, res) => {
+  const { id } = req.params
+  const { body } = req
+  console.log(id)
+  Panel.findByIdAndUpdate(id, body)
+    .then(data => res.status(200).end())
+    .catch(err => console.log(err))
+})
+
+// delete panel
 app.delete('/panel/:id', (req, res) => {
   Panel.findByIdAndRemove(req.params.id)
     .then(() => res.status(200).end())

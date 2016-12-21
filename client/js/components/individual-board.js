@@ -14,8 +14,14 @@ export class IndividualBoard extends React.Component {
 
     render() {
       let panelsList = this.props.panels.map((panel, index) => {
-        return <li> <PanelContainer filter={panel.filter} imgUrl={panel.imgUrl} edits={panel.edits} text={panel.text} /> </li> })
-      
+        return <li>
+          <div className="strip-panel-img"><img src={panel.imgUrl} />
+            <p>{panel.text}</p>
+          </div>
+          <button >New</button>
+        </li>
+      })
+
       return (
         <div className="indivBoard">
           <ul className="listOfPanels">
@@ -26,7 +32,8 @@ export class IndividualBoard extends React.Component {
 
     }
 }
- 
+
+// <PanelContainer filter={panel.filter} imgUrl={panel.imgUrl} edits={panel.edits} text= />
 
               // <li>
               //     <img className="panelImage" src= ></img>
