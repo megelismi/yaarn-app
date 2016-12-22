@@ -17,8 +17,8 @@ h1 {
 }
 
 
-.strip-images {
-  padding: 15px; 
+.strip-images, #strip-images {
+  padding: 15px;
   width: 250px;
 }
 
@@ -31,7 +31,7 @@ h1 {
 }
 
 .strip-description {
-  padding-left: 14px; 
+  padding-left: 14px;
 
 }
 
@@ -47,7 +47,7 @@ h1 {
 
 
 .story-description {
-    border: 1px black solid; 
+    border: 1px black solid;
     width: 400px;
 }
 
@@ -214,4 +214,3 @@ img {
 .RichEditor-activeButton {
   color: #5890ff;
 }
-

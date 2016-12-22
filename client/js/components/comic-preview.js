@@ -31,7 +31,7 @@ export class ComicPreview extends React.Component {
 
     return (
       <li>
-        <div className="strip-panel-img"><img className="strip-images" src={this.props.content.imgUrl} />
+        <div className="strip-panel-img"><img className={this.props.content.filter} id="strip-images" src={this.props.content.imgUrl} />
           <p className="strip-description">{this.props.content.text}</p>
           {this.newPanelId === 'newStrip' ? <button className="strip-button" onClick={() => this.newPanel()}>New</button> :
             <div>

@@ -46,6 +46,16 @@ export const mainReducer = (state=initialState, action) => {
 		}
 	}
 
+	else if (action.type === actions.PUT_PANEL_SUCCESS) {
+		console.log(action.panel)
+	  return state
+	}
+
+	else if (action.type === actions.PUT_PANEL_ERROR) {
+		console.log(action.error)
+		return state
+	}
+
 	else if (action.type === actions.SAVE_IMAGE_URL) {
 		return update(state, {strip: {panelInProgress: {imgUrl: {$set: action.url}}}})
 
@@ -83,6 +93,6 @@ export const mainReducer = (state=initialState, action) => {
  	else if (action.type === actions.APPLY_SEPIA) {
 		return update(state, {strip: {panelInProgress: {filter: {$set: "Sepia"}}}})
  	}
- 
+
 	return state
 }

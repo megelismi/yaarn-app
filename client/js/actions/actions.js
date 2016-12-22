@@ -76,7 +76,17 @@ export const postPanel = panel => {
 	}
 }
 
+export const PUT_PANEL_SUCCESS = "PUT_PANEL_SUCCESS"
+export const putPanelSuccess = panel => ({
+	type: PUT_PANEL_SUCCESS,
+	panel
+})
 
+export const PUT_PANEL_ERROR = "PUT_PANEL_ERROR"
+export const putPanelError = panel => ({
+	type: PUT_PANEL_ERROR,
+	panel
+})
 
 export const putPanel = panel => dispatch => {
 	console.log(panel)
@@ -97,7 +107,7 @@ export const putPanel = panel => dispatch => {
 		return response
 	})
 	.then(response => response.json())
-	.then(data => dispatch(putPanelSuccess(data)))
+	.then(data => dispatch(getPanel()))
 	.catch(error => dispatch(putPanelError(error)))
 
 }
