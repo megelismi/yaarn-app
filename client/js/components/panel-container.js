@@ -25,8 +25,11 @@ class PanelContainer extends React.Component {
 		this.closePanel = this.closePanel.bind(this)
 
 		this.filters = [
-			["grayscale", this.switchGrayscale],
-			["sepia", this.switchSepia]
+			["Grayscale", this.switchGrayscale],
+			["Sepia", this.switchSepia], 
+			["Invert", this.switchInvert], 
+			["Contrast", this.switchContrast], 
+			["Huerotate", this.switchHuerotate]
 		]
 	}
 
@@ -58,33 +61,23 @@ class PanelContainer extends React.Component {
 
 
 	switchGrayscale() {
-		this.setState({
-			filter: 'grayscale'
-		})
+		this.props.dispatch(actions.applyGrayscale())
 	}
 
 	switchInvert() {
-		this.setState({
-			filter: 'invert'
-		})
+		this.props.dispatch(actions.applyInvert())
 	}
 
 	switchContrast() {
-		this.setState({
-			filter: 'contrast'
-		})
+		this.props.dispatch(actions.applyContrast())
 	}
 
 	switchHuerotate(){
-		this.setState({
-			filter: 'huerotate'
-		})
+		this.props.dispatch(actions.applyHuerotate())
 	}
 
 	switchSepia(){
-		this.setState({
-			filter: 'sepia'
-		})
+		this.props.dispatch(actions.applySepia())
 	}
 
 	handleSubmit (event) {
@@ -114,12 +107,7 @@ class PanelContainer extends React.Component {
 			<div className="panel-container">
 				<img className={this.props.filter} src={this.props.imgUrl} />
 				<div className="button-container">
-
-					<button className="filter-button" onClick={this.switchGrayscale}>Grayscale</button>
-					<button className="filter-button" onClick={this.switchInvert}>Invert</button>
-					<button className="filter-button" onClick={this.switchContrast}>Contrast</button>
-					<button className="filter-button" onClick={this.switchHuerotate}>Huerotate</button>
-					<button className="filter-button" onClick={this.switchSepia}>Sepia</button>
+				{this.filters.map(([name, func]) => <button key={name}className="filter-button" onClick={func}>{name}</button>)}
 				</div>
 				<form className="description-form" onSubmit={this.handleSubmit.bind(this)}>
 					<div className="story-description" contentEditable={this.props.edits} suppressContentEditableWarning={true} ref={element => text = element}>{this.props.text}</div>
@@ -143,4 +131,3 @@ const mapStateToProps = (state, props) => ({
 
 export default connect(mapStateToProps)(PanelContainer)
 
-		// {this.filter.map(([name, func]) => <button className="filter-button" onClick={func}>name</button>)}

@@ -24,7 +24,6 @@ export class ComicPreview extends React.Component {
   }
 
   newPanel() {
-    // console.log("newPanel called")
     this.props.dispatch(actions.createNewPanel())
   }
 

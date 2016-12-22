@@ -121,3 +121,28 @@ export const CREATE_NEW_PANEL = 'CREATE_NEW_PANEL'
 export const createNewPanel = () => ({
 	type: CREATE_NEW_PANEL
 })
+
+export const APPLY_GRAYSCALE = 'APPLY_GRAYSCALE'
+ export const applyGrayscale = ()=> ({
+ type: APPLY_GRAYSCALE
+ })
+ 
+ export const APPLY_INVERT = 'APPLY_INVERT'
+ export const applyInvert = () => ({
+ 	type: APPLY_INVERT
+ })
+ 
+export const APPLY_CONTRAST = 'APPLY_CONTRAST'
+export const applyContrast = () => ({
+ 	type: APPLY_CONTRAST
+ })
+ 
+ export const APPLY_HUEROTATE = 'APPLY_HUEROTATE'
+ export const applyHuerotate = () => ({
+ 	type: APPLY_HUEROTATE
+ })
+ 
+ export const APPLY_SEPIA = 'APPLY_SEPIA'
+ export const applySepia = () => ({
+ 	type: APPLY_SEPIA
+ })

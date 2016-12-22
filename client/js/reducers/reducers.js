@@ -64,5 +64,25 @@ export const mainReducer = (state=initialState, action) => {
 		return update(state, {strip: {modalUp: {$set: true }, panelInProgress: {$set: newContent }}})
 	}
 
+	else if (action.type === actions.APPLY_GRAYSCALE) {
+ 		return update(state, {strip: {panelInProgress: {filter: {$set: "Grayscale"}}}})
+ 	}
+
+ 	else if (action.type === actions.APPLY_INVERT) {
+ 		return update(state, {strip: {panelInProgress: {filter: {$set: "Invert"}}}})
+ 	}
+
+ 	else if (action.type === actions.APPLY_CONTRAST) {
+ 		return update(state, {strip: {panelInProgress: {filter: {$set: "Contrast"}}}})
+ 	}
+
+ 	else if (action.type === actions.APPLY_HUEROTATE) {
+ 		return update(state, {strip: {panelInProgress: {filter: {$set: "Huerotate"}}}})
+ 	}
+
+ 	else if (action.type === actions.APPLY_SEPIA) {
+		return update(state, {strip: {panelInProgress: {filter: {$set: "Sepia"}}}})
+ 	}
+ 
 	return state
 }
