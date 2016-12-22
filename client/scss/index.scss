@@ -49,6 +49,8 @@ h1 {
 .story-description {
     border: 1px black solid;
     width: 400px;
+    margin-bottom: 20px;
+    margin-top: 20p
 }
 
 .edit-button{
@@ -97,7 +99,7 @@ img {
 	width: 400px;
 }
 
-.save-description-button, .edit-description-button, .save-panel-button, .cancel-panel-button {
+.save-panel-button, .cancel-panel-button {
   width: 100px;
 }
 

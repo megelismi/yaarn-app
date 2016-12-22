@@ -2,13 +2,6 @@
 
 import 'isomorphic-fetch'
 
-
-export const SAVE_IMAGE_URL = 'SAVE_IMAGE_URL'
-export const saveImageUrl = url => ({
-	type: SAVE_IMAGE_URL,
-	url
-})
-
 export const GET_PANEL_SUCCESS = 'GET_PANEL_SUCCESS'
 export const getPanelSuccess = panel => ({
 	type: GET_PANEL_SUCCESS,
@@ -143,9 +136,9 @@ export const deletePanel = id => {
 	}
 }
 
-export const SAVE_PANEL_IN_PROGRESS = 'SAVE_PANEL_IN_PROGRESS'
-export const savePanelInProgress = (content) => ({
-	type: SAVE_PANEL_IN_PROGRESS,
+export const EDIT_PANEL= 'EDIT_PANEL'
+export const editPanel = (content) => ({
+	type: EDIT_PANEL,
 	content
 })
 
@@ -159,8 +152,20 @@ export const createNewPanel = () => ({
 	type: CREATE_NEW_PANEL
 })
 
+export const SAVE_TEXT_IN_PROGRESS = 'SAVE_TEXT_IN_PROGRESS'
+export const saveTextInProgress = text => ({
+	type: SAVE_TEXT_IN_PROGRESS, 
+	text
+})
+
+export const SAVE_IMAGE_URL = 'SAVE_IMAGE_URL'
+export const saveImageUrl = url => ({
+	type: SAVE_IMAGE_URL,
+	url
+})
+
 export const APPLY_GRAYSCALE = 'APPLY_GRAYSCALE'
- export const applyGrayscale = ()=> ({
+ export const applyGrayscale = () => ({
  type: APPLY_GRAYSCALE
  })
 

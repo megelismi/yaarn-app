@@ -9,7 +9,6 @@ export class ComicPreview extends React.Component {
     this.deletePanel = this.deletePanel.bind(this)
     this.editPanel = this.editPanel.bind(this)
     this.newPanelId = this.props.content.id
-    // this.checkIfNew = this.checkIfNew.bind(this)
     this.newPanel = this.newPanel.bind(this)
   }
 
@@ -20,7 +19,7 @@ export class ComicPreview extends React.Component {
   }
 
   editPanel(content) {
-    this.props.dispatch(actions.savePanelInProgress(content))
+    this.props.dispatch(actions.editPanel(content))
   }
 
   newPanel() {

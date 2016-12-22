@@ -81,32 +81,31 @@ class PanelContainer extends React.Component {
 		this.props.dispatch(actions.applySepia())
 	}
 
-	handleSubmit (event) {
-		event.preventDefault();
-		this.setState({
-			text: text.innerText.trim(),
-			edits: "false"
-		})
-	}
 
 	closePanel(){
 		this.props.dispatch(actions.closePanel())
 	}
 
 	savePanel() {
-		//TODO: change new panel id
 		if (this.props.id === "newStrip" ) {
 			console.log('newStrip postPanel')
 			this.props.dispatch(actions.postPanel(this.props))
 		} else {
 			this.props.dispatch(actions.putPanel(this.props))
 		}
-
-		console.log(this.props)
-		// this.props.dispatch(
-		// 	actions.postPanel(this.props)
-		// )
 		this.props.dispatch(actions.closePanel())
+	}
+
+		// handleSubmit (event) {
+	// 	event.preventDefault();
+	// 	this.setState({
+	// 		text: text.innerText.trim(),
+	// 		edits: "false"
+	// 	})
+	// }
+
+	saveTextInProgress() {
+		this.props.dispatch(actions.saveTextInProgress(text.innerText))
 	}
 
 	render () {
@@ -116,11 +115,11 @@ class PanelContainer extends React.Component {
 				<div className="button-container">
 				{this.filters.map(([name, func]) => <button key={name}className="filter-button" onClick={func}>{name}</button>)}
 				</div>
-				<form className="description-form" onSubmit={this.handleSubmit.bind(this)}>
-					<div className="story-description" contentEditable={this.props.edits} suppressContentEditableWarning={true} ref={element => text = element}>{this.props.text}</div>
-					<input className="save-description-button" type="submit" value="Save description" />
+				{/*<form className="description-form">*/}
+					<div className="story-description" contentEditable="true" onBlur={this.saveTextInProgress.bind(this)} suppressContentEditableWarning={true} ref={element => text = element}>{this.props.text}</div>
+				{/*<input className="save-description-button" type="submit" value="Save description" />
       		</form>
-      		<button className="edit-description-button">Edit description</button>
+      		<button className="edit-description-button">Edit description</button>*/}
 				<ImageUpload onDrop={this.onImageDrop.bind(this)} />
 				<button className="save-panel-button" onClick={this.savePanel}>Save panel</button>
 				<button className="cancel-panel-button" onClick={this.closePanel}>Cancel</button>

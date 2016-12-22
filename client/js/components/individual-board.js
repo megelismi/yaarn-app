@@ -3,40 +3,16 @@ import {connect} from 'react-redux';
 import * as actions from '../actions/actions.js';
 import PanelContainer from './panel-container'
 import ComicPreview from './comic-preview'
+
 export class IndividualBoard extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      editPanel: false
-    }
-    // this.deletePanel = this.deletePanel.bind(this)
-    // this.editPanel = this.editPanel.bind(this)
-
     }
 
     componentDidMount() {
       this.props.dispatch(actions.getPanel());
-      //cause new panel to be rendered
     }
 
-    // editPanel() {
-    //   // this.setState({
-    //   //   editPanel: true
-    //   // })
-    //   console.log(this.props)
-    // }
-
-    // cancelPanel() {
-    //   this.setState({
-    //     editPanel: false
-    //   })
-    // }
-
-    // deletePanel(id) {
-    //   console.log('delete panel called on', id)
-    //   this.props.dispatch(
-    //     actions.deletePanel(id))
-    // }
 
     render() {
 
@@ -45,8 +21,6 @@ export class IndividualBoard extends React.Component {
           <ComicPreview key={index} content={panel} />
         )
       })
-
-
 
       return (
         <div className="indivBoard">

@@ -12,7 +12,7 @@ const initialState = {
 		newPanel: {
 				"id": "newStrip",
     		"filter": "",
-    		"text": "Stories of Cats dying",
+    		"text": "Add your next masterpiece.",
     		"imgUrl": "http://cdn3-www.cattime.com/assets/uploads/2011/08/best-kitten-names-1.jpg",
     		"edits": false
   		},
@@ -60,8 +60,7 @@ export const mainReducer = (state=initialState, action) => {
 		return update(state, {strip: {panelInProgress: {imgUrl: {$set: action.url}}}})
 
 	}
-	else if (action.type === actions.SAVE_PANEL_IN_PROGRESS) { // rename to begin edit/new
-		console.log('action SAVE_PANEL_IN_PROGRESS: ', action.content)
+	else if (action.type === actions.EDIT_PANEL) { // rename to begin edit/new
 		return update(state, {strip: {modalUp: {$set: true }, panelInProgress: {$set: action.content }}})
 	}
 	else if (action.type === actions.CLOSE_PANEL) {
@@ -92,6 +91,10 @@ export const mainReducer = (state=initialState, action) => {
 
  	else if (action.type === actions.APPLY_SEPIA) {
 		return update(state, {strip: {panelInProgress: {filter: {$set: "Sepia"}}}})
+ 	}
+
+ 	else if (action.type === actions.SAVE_TEXT_IN_PROGRESS) {
+ 		return update(state, {strip: {panelInProgress: {text: {$set: action.text}}}})
  	}
 
 	return state
