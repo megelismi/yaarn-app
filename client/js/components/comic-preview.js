@@ -38,7 +38,8 @@ export class ComicPreview extends React.Component {
             <div>
               <button className="strip-button" onClick={() => {this.editPanel(this.props.content)}}>Edit</button>
               <button className="strip-button" onClick={() => {this.deletePanel(this.props.content._id)}}>Delete</button>
-            </div>}
+            </div>
+          }
         </div>
       </li>
     )

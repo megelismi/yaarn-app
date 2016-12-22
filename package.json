@@ -1,7 +1,7 @@
 {
-  "name": "thinkful-full-stack-template",
+  "name": "tell_your_story",
   "version": "0.0.1",
-  "description": "A full-stack template for Thinkful students",
+  "description": "Tell your personal story through photos, captions, and our special filters",
   "main": "index.js",
   "main:server": "server/index.js",
   "main:client": "client/js/index.js",
