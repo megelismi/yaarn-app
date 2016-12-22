@@ -22,6 +22,11 @@ class PanelContainer extends React.Component {
 		this.switchContrast = this.switchContrast.bind(this)
 		this.switchHuerotate = this.switchHuerotate.bind(this)
 		this.switchSepia = this.switchSepia.bind(this)
+		this.switchSaturate = this.switchSaturate.bind(this)
+		this.switchGrapefruit = this.switchGrapefruit.bind(this)
+		this.switchHulk = this.switchHulk.bind(this)
+		this.switchPrince = this.switchPrince.bind(this)
+		this.switchNone = this.switchNone.bind(this)
 		this.closePanel = this.closePanel.bind(this)
 		this.savePanel =	this.savePanel.bind(this)
 
@@ -32,6 +37,15 @@ class PanelContainer extends React.Component {
 			["Contrast", this.switchContrast],
 			["Huerotate", this.switchHuerotate]
 		]
+
+		this.filters2 = [
+			["Saturate", this.switchSaturate],
+			["Prince", this.switchPrince],
+			["Hulk", this.switchHulk],
+			["Grapefruit", this.switchGrapefruit],
+			["None", this.switchNone]
+		]
+
 	}
 
 
@@ -65,6 +79,10 @@ class PanelContainer extends React.Component {
 		this.props.dispatch(actions.applyGrayscale())
 	}
 
+	switchSepia(){
+		this.props.dispatch(actions.applySepia())
+	}
+
 	switchInvert() {
 		this.props.dispatch(actions.applyInvert())
 	}
@@ -77,8 +95,24 @@ class PanelContainer extends React.Component {
 		this.props.dispatch(actions.applyHuerotate())
 	}
 
-	switchSepia(){
-		this.props.dispatch(actions.applySepia())
+	switchGrapefruit(){
+		this.props.dispatch(actions.applyGrapefruit())
+	}
+
+	switchHulk(){
+		this.props.dispatch(actions.applyHulk())
+	}
+
+	switchPrince(){
+		this.props.dispatch(actions.applyPrince())
+	}
+
+	switchNone(){
+		this.props.dispatch(actions.applyNone())
+	}
+
+	switchSaturate(){
+		this.props.dispatch(actions.applySaturate())
 	}
 
 
@@ -114,6 +148,9 @@ class PanelContainer extends React.Component {
 				<img className={this.props.filter} src={this.props.imgUrl} />
 				<div className="filter-button-container">
 				{this.filters.map(([name, func]) => <button key={name} className="filter-button" onClick={func}>{name}</button>)}
+				</div>
+				<div className="filter-button-container">
+				{this.filters2.map(([name, func]) => <button key={name} className="filter-button" onClick={func}>{name}</button>)}
 				</div>
 				{/*<form className="description-form">*/}
 					<div className="comic-text-box" contentEditable="true" onBlur={this.saveTextInProgress.bind(this)} suppressContentEditableWarning={true} ref={element => text = element}>{this.props.text}</div>
