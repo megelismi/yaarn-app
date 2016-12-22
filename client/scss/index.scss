@@ -8,7 +8,9 @@ body {
 
 h1 {
   font-family: 'Satisfy', cursive;
+  font-size:30px;
 }
+
 .listOfPanels{
     display: inline-flex;
     flex-direction: row;
@@ -35,9 +37,7 @@ h1 {
 
 }
 
-.strip-button {
-    margin-left: 12px;
-    width: 70px;
+.strip-button, .save-panel-button, .cancel-panel-button {
     height: 25px;
     border-radius: 2px;
     background-color: white;
@@ -45,21 +45,40 @@ h1 {
     border: 1px solid black;
 }
 
+.save-panel-button, .cancel-panel-button {
+  width: 85px;
+  margin-right: 10px;
+}
 
-.story-description {
+.strip-button {
+  margin-left: 12px;
+  width: 70px;
+}
+
+.image-upload {
+    width: 150px;
+    height: 85px;
+    border: 2px gray dashed;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.image-upload p {
+  font-size: 14px;
+}
+
+.comic-text-box {
     border: 1px black solid;
     width: 400px;
+    height: 100px;
     margin-bottom: 20px;
-    margin-top: 20p
+    margin-top: 20px;
+    border-radius: 2px;
+    padding: 10px;
 }
 
-.edit-button{
-    width: 41px;
-}
-
-
-.placeholder {
-  color: lightgray;
+.filter-button {
+  margin-top: 10px;
 }
 
 .text-box {
@@ -67,9 +86,9 @@ h1 {
 	height: auto;
 }
 
-
 .panel-container {
-	display: inline-flex;
+	display: flex;
+  justify-content:center;
 	flex-direction: column;
 	width: 500px;
 	height: 626px;
@@ -84,7 +103,12 @@ h1 {
   padding: 15px;
 }
 
-.button-container {
+.save-cancel-button-container-panels {
+  display: flex;
+  padding-right: 10px;
+}
+
+.filter-button-container {
 	display: inline-flex;
 	flex-direction: row;
 }
@@ -99,9 +123,6 @@ img {
 	width: 400px;
 }
 
-.save-panel-button, .cancel-panel-button {
-  width: 100px;
-}
 
 .Blur {
     -webkit-filter: blur(3px);
@@ -151,68 +172,4 @@ img {
 .Shadow {
     -webkit-filter: drop-shadow(8px 8px 10px gray);
     filter: drop-shadow(8px 8px 10px gray);
-}
-
-.RichEditor-root {
-  background: #fff;
-  border: 1px solid #ddd;
-  font-family: 'Georgia', serif;
-  font-size: 14px;
-  padding: 15px;
-}
-
-.RichEditor-editor {
-  border-top: 1px solid #ddd;
-  cursor: text;
-  font-size: 16px;
-  margin-top: 10px;
-}
-
-.RichEditor-editor .public-DraftEditorPlaceholder-root,
-.RichEditor-editor .public-DraftEditor-content {
-  margin: 0 -15px -15px;
-  padding: 15px;
-}
-
-.RichEditor-editor .public-DraftEditor-content {
-  min-height: 100px;
-}
-
-.RichEditor-hidePlaceholder .public-DraftEditorPlaceholder-root {
-  display: none;
-}
-
-.RichEditor-editor .RichEditor-blockquote {
-  border-left: 5px solid #eee;
-  color: #666;
-  font-family: 'Hoefler Text', 'Georgia', serif;
-  font-style: italic;
-  margin: 16px 0;
-  padding: 10px 20px;
-}
-
-.RichEditor-editor .public-DraftStyleDefault-pre {
-  background-color: rgba(0, 0, 0, 0.05);
-  font-family: 'Inconsolata', 'Menlo', 'Consolas', monospace;
-  font-size: 16px;
-  padding: 20px;
-}
-
-.RichEditor-controls {
-  font-family: 'Helvetica', sans-serif;
-  font-size: 14px;
-  margin-bottom: 5px;
-  user-select: none;
-}
-
-.RichEditor-styleButton {
-  color: #999;
-  cursor: pointer;
-  margin-right: 16px;
-  padding: 2px 0;
-  display: inline-block;
-}
-
-.RichEditor-activeButton {
-  color: #5890ff;
 }

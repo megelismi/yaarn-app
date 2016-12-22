@@ -15,6 +15,7 @@ export default class ImageUpload extends React.Component {
 		return (
 			<div className="FileUpload">
 				<Dropzone
+					className="image-upload"
 					multiple={false}
 					accept="image/*"
 					onDrop={this.props.onDrop}>

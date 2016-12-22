@@ -112,17 +112,19 @@ class PanelContainer extends React.Component {
 		return (
 			<div className="panel-container">
 				<img className={this.props.filter} src={this.props.imgUrl} />
-				<div className="button-container">
-				{this.filters.map(([name, func]) => <button key={name}className="filter-button" onClick={func}>{name}</button>)}
+				<div className="filter-button-container">
+				{this.filters.map(([name, func]) => <button key={name} className="filter-button" onClick={func}>{name}</button>)}
 				</div>
 				{/*<form className="description-form">*/}
-					<div className="story-description" contentEditable="true" onBlur={this.saveTextInProgress.bind(this)} suppressContentEditableWarning={true} ref={element => text = element}>{this.props.text}</div>
+					<div className="comic-text-box" contentEditable="true" onBlur={this.saveTextInProgress.bind(this)} suppressContentEditableWarning={true} ref={element => text = element}>{this.props.text}</div>
 				{/*<input className="save-description-button" type="submit" value="Save description" />
       		</form>
       		<button className="edit-description-button">Edit description</button>*/}
 				<ImageUpload onDrop={this.onImageDrop.bind(this)} />
-				<button className="save-panel-button" onClick={this.savePanel}>Save panel</button>
-				<button className="cancel-panel-button" onClick={this.closePanel}>Cancel</button>
+				<div className="save-cancel-button-container-panels">
+					<button className="save-panel-button" onClick={this.savePanel}>Save panel</button>
+					<button className="cancel-panel-button" onClick={this.closePanel}>Cancel</button>
+				</div>
 			</div>
 		)
 	}
