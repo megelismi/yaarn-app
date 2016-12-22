@@ -154,7 +154,7 @@ export const createNewPanel = () => ({
 
 export const SAVE_TEXT_IN_PROGRESS = 'SAVE_TEXT_IN_PROGRESS'
 export const saveTextInProgress = text => ({
-	type: SAVE_TEXT_IN_PROGRESS, 
+	type: SAVE_TEXT_IN_PROGRESS,
 	text
 })
 
@@ -187,4 +187,29 @@ export const applyContrast = () => ({
  export const APPLY_SEPIA = 'APPLY_SEPIA'
  export const applySepia = () => ({
  	type: APPLY_SEPIA
+ })
+
+ export const APPLY_SATURATE = 'APPLY_SATURATE'
+ export const applySaturate = () => ({
+	 type: APPLY_SATURATE
+ })
+
+ export const APPLY_GRAPEFRUIT = 'APPLY_GRAPEFRUIT'
+ export const applyGrapefruit = () => ({
+	 type: APPLY_GRAPEFRUIT
+ })
+
+ export const APPLY_HULK = 'APPLY_HULK'
+ export const applyHulk = () => ({
+	 type: APPLY_HULK
+ })
+
+ export const APPLY_PRINCE = 'APPLY_PRINCE'
+ export const applyPrince = () => ({
+	 type: APPLY_PRINCE
+ })
+
+ export const APPLY_NONE = 'APPLY_NONE'
+ export const applyNone = () => ({
+	 type: APPLY_NONE
  })

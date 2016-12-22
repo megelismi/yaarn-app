@@ -93,6 +93,26 @@ export const mainReducer = (state=initialState, action) => {
 		return update(state, {strip: {panelInProgress: {filter: {$set: "Sepia"}}}})
  	}
 
+	else if (action.type === actions.APPLY_SATURATE) {
+		return update(state, {strip: {panelInProgress: {filter: {$set: "Saturate"}}}})
+ 	}
+
+	else if (action.type === actions.APPLY_GRAPEFRUIT) {
+		return update(state, {strip: {panelInProgress: {filter: {$set: "Grapefruit"}}}})
+ 	}
+
+	else if (action.type === actions.APPLY_HULK) {
+		return update(state, {strip: {panelInProgress: {filter: {$set: "Hulk"}}}})
+ 	}
+
+	else if (action.type === actions.APPLY_PRINCE) {
+		return update(state, {strip: {panelInProgress: {filter: {$set: "Prince"}}}})
+ 	}
+
+	else if (action.type === actions.APPLY_NONE) {
+		return update(state, {strip: {panelInProgress: {filter: {$set: ""}}}})
+ 	}
+
  	else if (action.type === actions.SAVE_TEXT_IN_PROGRESS) {
  		return update(state, {strip: {panelInProgress: {text: {$set: action.text}}}})
  	}
