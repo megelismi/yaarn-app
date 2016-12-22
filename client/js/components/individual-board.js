@@ -32,7 +32,6 @@ export class IndividualBoard extends React.Component {
             <button className="new-strip-panel-button" onClick={() => this.newPanel()}>Create New Panel</button>
           </div>
           <ul className="listOfPanels">
-            <ComicPreview content={this.props.newPanel}/>
             {panelsList}
           </ul>
            {this.props.modalUp ? <PanelContainer /> : null}
