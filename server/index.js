@@ -65,9 +65,8 @@ app.post('/panel', jsonParser, (req, res) => {
 app.put('/panel/:id', jsonParser, (req, res) => {
   const { id } = req.params
   const { body } = req
-  console.log(id)
   Panel.findByIdAndUpdate(id, body)
-    .then(data => res.status(200).end())
+    .then(data => res.status(200).json(data))
     .catch(err => console.log(err))
 })
 
@@ -80,7 +79,7 @@ app.delete('/panel/:id', (req, res) => {
 })
 
 var runServer = function(callback) {
-  var databaseUri = process.env.DATABASE_URI || global.databaseUri || 'mongodb://mongodb://user:user@ds141088.mlab.com:41088/tell_your_story_app';
+  var databaseUri = process.env.DATABASE_URI || global.databaseUri || 'mongodb://user:user@ds141128.mlab.com:41128/tell_your_story_app_carlo';
   mongoose.connect(databaseUri)
   .then(() => {
     var port = process.env.PORT || 8080;
@@ -97,5 +96,3 @@ if (require.main === module) {
 
 exports.app = app;
 exports.runServer = runServer;
-
-

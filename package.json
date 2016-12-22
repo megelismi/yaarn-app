@@ -1,7 +1,7 @@
 {
-  "name": "thinkful-full-stack-template",
-  "version": "0.0.1",
-  "description": "A full-stack template for Thinkful students",
+  "name": "tell-your-story",
+  "version": "0.0.79",
+  "description": "Tell your personal story through photos, captions, and our special filters",
   "main": "index.js",
   "main:server": "server/index.js",
   "main:client": "client/js/index.js",
@@ -61,7 +61,7 @@
     "clean:client:production:assets": "rm -rf build/production/client/assets",
     "build:client:production:assets": "run-s clean:client:production:assets && cp -r client/assets build/production/client"
   },
-  "author": "Joe Turner <joe@oampo.co.uk>",
+  "author": "Nick Coleman <nick@itprojmgt.com>",
   "license": "UNLICENSED",
   "devDependencies": {
     "babel-cli": "^6.11.4",
@@ -84,6 +84,7 @@
     "body-parser": "^1.15.2",
     "draft-js": "^0.9.1",
     "express": "^4.14.0",
+    "immutability-helper": "^2.0.0",
     "isomorphic-fetch": "^2.2.1",
     "mongoose": "^4.7.3",
     "passport": "^0.3.2",
@@ -97,5 +98,6 @@
     "redux": "^3.6.0",
     "redux-thunk": "^2.1.0",
     "superagent": "^3.3.1"
-  }
+  },
+  "repository": "https://github.com/megelismi/tell_your_story_app"
 }
