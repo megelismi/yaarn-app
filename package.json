@@ -84,6 +84,7 @@
     "webpack": "^1.13.1"
   },
   "dependencies": {
+    "pinkie-promise": "2.0.1",
     "body-parser": "^1.15.2",
     "draft-js": "^0.9.1",
     "express": "^4.14.0",
