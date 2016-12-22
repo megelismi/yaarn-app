@@ -1,6 +1,9 @@
 {
   "name": "tell-your-story",
   "version": "0.0.79",
+  "engines": {
+    "node": "6.3.1"
+  },
   "description": "Tell your personal story through photos, captions, and our special filters",
   "main": "index.js",
   "main:server": "server/index.js",
