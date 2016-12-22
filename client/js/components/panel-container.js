@@ -122,7 +122,7 @@ class PanelContainer extends React.Component {
       		<button className="edit-description-button">Edit description</button>*/}
 				<ImageUpload onDrop={this.onImageDrop.bind(this)} />
 				<div className="save-cancel-button-container-panels">
-					<button className="save-panel-button" onClick={this.savePanel}>Save panel</button>
+					<button className="save-panel-button" onClick={this.savePanel}>Save</button>
 					<button className="cancel-panel-button" onClick={this.closePanel}>Cancel</button>
 				</div>
 			</div>

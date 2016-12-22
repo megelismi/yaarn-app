@@ -42,13 +42,12 @@ h1 {
     height: 25px;
     border-radius: 2px;
     background-color: white;
-    font-size: 12px;
+    font-size: 75%;
     border: 1px solid black;
 }
 
 .save-panel-button, .cancel-panel-button {
   width: 85px;
-  margin-right: 10px;
 }
 
 .strip-button {
@@ -70,58 +69,63 @@ h1 {
 
 .comic-text-box {
     border: 1px black solid;
-    width: 400px;
-    height: 100px;
+    width: 90%;
+    max-height: 71px;
+    min-height: 70px;
     margin-bottom: 20px;
     margin-top: 20px;
     border-radius: 2px;
     padding: 10px;
+    overflow: auto;
 }
 
 .filter-button {
   margin-top: 10px;
 }
 
-.text-box {
-	width: 400px;
-	height: auto;
-}
-
-.panel-container {
-	display: flex;
-  justify-content:center;
-	flex-direction: column;
-	width: 500px;
-	height: 626px;
-  margin-left: -250px;
-  margin-top: -313px;
-  background-color: white;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  border: 1px gray solid;
-  transition: opacity 500ms ease;
-  padding: 15px;
-}
-
 .save-cancel-button-container-panels {
-  display: flex;
-  padding-right: 10px;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    height: auto;
+    margin-bottom: 13px; 
 }
 
 .filter-button-container {
-	display: inline-flex;
-	flex-direction: row;
+  display: inline-flex;
+  flex-direction: row;
+    flex-wrap: wrap;
+    width: 90%;
+    height: auto;
+    margin: 20px;
 }
 
 .filter-button {
-	width: 80px;
-	font-size: 13px;
-   height: 21px;
+  width: 80px;
+  font-size: 13px;
+  height: 21px;
+}
+
+
+.panel-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 40vw;
+  height: 95vh;
+  background-color: white;
+  position: fixed;
+  top: 2.5%;
+  left: 30%;
+  border: 1px gray solid;
+  transition: opacity 500ms ease;
+  overflow: auto;
 }
 
 img {
-	width: 400px;
+    width: 90%;
+    max-width: 430px;
+    margin-top: 13px;
 }
 
 
