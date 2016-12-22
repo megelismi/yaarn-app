@@ -10,9 +10,9 @@ const initialState = {
 		editPanel: false,  // true: put request ... false: post request
 		panels: [],
 		newPanel: {
-			"id": "newStrip",
+				"id": "newStrip",
     		"filter": "",
-    		"text": "Tell your story...",
+    		"text": "Stories of Cats dying",
     		"imgUrl": "http://cdn3-www.cattime.com/assets/uploads/2011/08/best-kitten-names-1.jpg",
     		"edits": false
   		},
@@ -55,8 +55,13 @@ export const mainReducer = (state=initialState, action) => {
 		return update(state, {strip: {modalUp: {$set: true }, panelInProgress: {$set: action.content }}})
 	}
 	else if (action.type === actions.CLOSE_PANEL) {
-		console.log('close panel action called in reducer')
+		// console.log('close panel action called in reducer')
 		return update(state, {strip: {modalUp: {$set: false}}})
+	}
+	else if (action.type === actions.CREATE_NEW_PANEL) {
+		// console.log('new panel action called')
+		const newContent = state.strip.newPanel
+		return update(state, {strip: {modalUp: {$set: true }, panelInProgress: {$set: newContent }}})
 	}
 
 	return state

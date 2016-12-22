@@ -116,3 +116,8 @@ export const CLOSE_PANEL = 'CLOSE_PANEL'
 export const closePanel = () => ({
 	type: CLOSE_PANEL
 })
+
+export const CREATE_NEW_PANEL = 'CREATE_NEW_PANEL'
+export const createNewPanel = () => ({
+	type: CREATE_NEW_PANEL
+})

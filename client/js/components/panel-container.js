@@ -102,6 +102,7 @@ class PanelContainer extends React.Component {
 	}
 
 	savePanel() {
+		//TODO: change new panel id
 		console.log(this.props)
 		this.props.dispatch(
 			actions.postPanel(this.props)
@@ -113,7 +114,7 @@ class PanelContainer extends React.Component {
 			<div className="panel-container">
 				<img className={this.props.filter} src={this.props.imgUrl} />
 				<div className="button-container">
-				
+
 					<button className="filter-button" onClick={this.switchGrayscale}>Grayscale</button>
 					<button className="filter-button" onClick={this.switchInvert}>Invert</button>
 					<button className="filter-button" onClick={this.switchContrast}>Contrast</button>
@@ -136,7 +137,7 @@ class PanelContainer extends React.Component {
 
 const mapStateToProps = (state, props) => ({
   text: state.strip.panelInProgress.text,
-  imgUrl: state.strip.panelInProgress.imgUrl, 
+  imgUrl: state.strip.panelInProgress.imgUrl,
   filter: state.strip.panelInProgress.filter
 })
 

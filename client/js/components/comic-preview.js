@@ -9,7 +9,8 @@ export class ComicPreview extends React.Component {
     this.deletePanel = this.deletePanel.bind(this)
     this.editPanel = this.editPanel.bind(this)
     this.newPanelId = this.props.content.id
-    this.checkIfNew = this.checkIfNew.bind(this)
+    // this.checkIfNew = this.checkIfNew.bind(this)
+    this.newPanel = this.newPanel.bind(this)
   }
 
   deletePanel(id) {
@@ -22,9 +23,10 @@ export class ComicPreview extends React.Component {
     this.props.dispatch(actions.savePanelInProgress(content))
   }
 
-  checkIfNew () {}
-
-
+  newPanel() {
+    // console.log("newPanel called")
+    this.props.dispatch(actions.createNewPanel())
+  }
 
   render() {
 
@@ -32,15 +34,8 @@ export class ComicPreview extends React.Component {
       <li>
         <div className="strip-panel-img"><img className="strip-images" src={this.props.content.imgUrl} />
           <p className="strip-description">{this.props.content.text}</p>
-            {() => {return if (this.newPanelId === 'newStrip') {
-                      <button className="strip-button">New</button>
-                  } 
-                   else {
-                      <button className="strip-button" onClick={() => {this.editPanel(this.props.content)}}>Edit</button>
-                      <button className="strip-button" onClick={() => {this.deletePanel(this.props.content._id)}}>Delete</button>
-                  }
-                }
-              }
+          {this.newPanelId === 'newStrip' ? <button className="strip-button" onClick={() => this.newPanel()}>New</button> :
+            <div><button className="strip-button" onClick={() => {this.deletePanel(this.props.content._id)}}>Delete</button><button className="strip-button" onClick={() => {this.editPanel(this.props.content)}}>Edit</button></div>}
         </div>
       </li>
     )
