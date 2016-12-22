@@ -80,7 +80,7 @@ app.delete('/panel/:id', (req, res) => {
 })
 
 var runServer = function(callback) {
-  var databaseUri = process.env.DATABASE_URI || global.databaseUri || 'mongodb://mongodb://user:user@ds141088.mlab.com:41088/tell_your_story_app';
+  var databaseUri = process.env.DATABASE_URI || global.databaseUri || 'mongodb://user:user@ds141128.mlab.com:41128/tell_your_story_app_carlo';
   mongoose.connect(databaseUri)
   .then(() => {
     var port = process.env.PORT || 8080;

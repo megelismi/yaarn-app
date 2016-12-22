@@ -2,6 +2,13 @@
 
 import 'isomorphic-fetch'
 
+
+export const SAVE_IMAGE_URL = 'SAVE_IMAGE_URL'
+export const saveImageUrl = url => ({
+	type: SAVE_IMAGE_URL,
+	url
+})
+
 export const GET_PANEL_SUCCESS = 'GET_PANEL_SUCCESS'
 export const getPanelSuccess = panel => ({
 	type: GET_PANEL_SUCCESS,
@@ -10,7 +17,7 @@ export const getPanelSuccess = panel => ({
 
 export const GET_PANEL_ERROR = 'GET_PANEL_ERROR'
 export const getPanelError = error => ({
-	type: GET_PANEL_ERROR, 
+	type: GET_PANEL_ERROR,
 	error
 })
 
@@ -41,7 +48,7 @@ export const postPanelSuccess = panel => ({
 
 export const POST_PANEL_ERROR = 'POST_PANEL_ERROR'
 export const postPanelError = error => ({
-	type: POST_PANEL_ERROR, 
+	type: POST_PANEL_ERROR,
 	error
 })
 
@@ -49,10 +56,10 @@ export const postPanel = panel => {
 	return dispatch => {
 		const url = "http://localhost:8080/panel"
 		return fetch(url, {
-			method: 'post', 
+			method: 'post',
 			headers: {
 				'Content-type': "application/json; charset=utf-8"
-			}, 
+			},
 			body: JSON.stringify(panel)
 		})
 		.then(response => {
@@ -73,7 +80,7 @@ export const postPanel = panel => {
 
 export const DELETE_PANEL_ERROR = 'DELETE_PANEL_ERROR';
 export const deletePanelError = error => ({
-	type: DELETE_PANEL_ERROR, 
+	type: DELETE_PANEL_ERROR,
 	error
 })
 
@@ -91,10 +98,26 @@ export const deletePanel = id => {
 				error.response = response
 				throw error
 			}
-			return response 
+			return response
 	})
 	.then(response => response.json())
 	.then(data => dispatch(getPanel()))
 	.catch(error => dispatch(deletePanelError(error)))
 	}
 }
+
+export const SAVE_PANEL_IN_PROGRESS = 'SAVE_PANEL_IN_PROGRESS'
+export const savePanelInProgress = (content) => ({
+	type: SAVE_PANEL_IN_PROGRESS,
+	content
+})
+
+export const CLOSE_PANEL = 'CLOSE_PANEL'
+export const closePanel = () => ({
+	type: CLOSE_PANEL
+})
+
+export const CREATE_NEW_PANEL = 'CREATE_NEW_PANEL'
+export const createNewPanel = () => ({
+	type: CREATE_NEW_PANEL
+})
