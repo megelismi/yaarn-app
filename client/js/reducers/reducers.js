@@ -10,17 +10,18 @@ const initialState = {
 		editPanel: false,  // true: put request ... false: post request
 		panels: [],
 		newPanel: {
+			"id": "newStrip",
     		"filter": "",
     		"text": "Tell your story...",
-    		"imgUrl": "http://cdn1-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-2.jpg",
-    		"edits": false,
+    		"imgUrl": "http://cdn3-www.cattime.com/assets/uploads/2011/08/best-kitten-names-1.jpg",
+    		"edits": false
   		},
   		modalUp: false,
  		panelInProgress: {
  			"filter": "",
     		"text": "",
     		"imgUrl": "",
-    		"edits": false,
+    		"edits": false
  		}
 	}
 }

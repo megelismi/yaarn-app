@@ -113,7 +113,7 @@ class PanelContainer extends React.Component {
 			<div className="panel-container">
 				<img className={this.props.filter} src={this.props.imgUrl} />
 				<div className="button-container">
-					{this.filter.map(([name, func]) => <button className="filter-button" onClick={func}>name</button>)}
+				
 					<button className="filter-button" onClick={this.switchGrayscale}>Grayscale</button>
 					<button className="filter-button" onClick={this.switchInvert}>Invert</button>
 					<button className="filter-button" onClick={this.switchContrast}>Contrast</button>
@@ -141,3 +141,5 @@ const mapStateToProps = (state, props) => ({
 })
 
 export default connect(mapStateToProps)(PanelContainer)
+
+		// {this.filter.map(([name, func]) => <button className="filter-button" onClick={func}>name</button>)}

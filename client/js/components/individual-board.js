@@ -46,12 +46,13 @@ export class IndividualBoard extends React.Component {
         )
       })
 
-      //variables filter, 
+
 
       return (
         <div className="indivBoard">
           <ul className="listOfPanels">
             {panelsList}
+            <ComicPreview content={this.props.newPanel}/>
           </ul>
            {this.props.modalUp ? <PanelContainer /> : null}
         </div>
@@ -68,5 +69,5 @@ const mapStateToProps = (state, props) => ({
 })
 
 export default connect(mapStateToProps)(IndividualBoard)
-//<PanelContainer filter='' imgUrl='' edits='true' text='' cancelPanel={this.cancelPanel.bind(this)} /> 
+
 
