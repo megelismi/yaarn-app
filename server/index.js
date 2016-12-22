@@ -65,16 +65,9 @@ app.post('/panel', jsonParser, (req, res) => {
 app.put('/panel/:id', jsonParser, (req, res) => {
   const { id } = req.params
   const { body } = req
-  console.log(id)
-  if (id === 'newStrip') {
-    Panel.create(req.body)
-      .then(data => res.status(200).json(data))
-      .catch(err => console.log(err))
-  } else {
-    Panel.findByIdAndUpdate(id, body)
-    .then(data => res.status(200).end())
+  Panel.findByIdAndUpdate(id, body)
+    .then(data => res.status(200).json(data))
     .catch(err => console.log(err))
-  }
 })
 
 // delete panel

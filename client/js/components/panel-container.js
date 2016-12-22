@@ -17,18 +17,19 @@ class PanelContainer extends React.Component {
 	constructor(props) {
 		super(props)
 
-		this.switchGrayscale = this.switchGrayscale.bind(this);
-		this.switchInvert = this.switchInvert.bind(this);
-		this.switchContrast = this.switchContrast.bind(this);
-		this.switchHuerotate = this.switchHuerotate.bind(this);
-		this.switchSepia = this.switchSepia.bind(this);
+		this.switchGrayscale = this.switchGrayscale.bind(this)
+		this.switchInvert = this.switchInvert.bind(this)
+		this.switchContrast = this.switchContrast.bind(this)
+		this.switchHuerotate = this.switchHuerotate.bind(this)
+		this.switchSepia = this.switchSepia.bind(this)
 		this.closePanel = this.closePanel.bind(this)
+		this.savePanel =	this.savePanel.bind(this)
 
 		this.filters = [
 			["Grayscale", this.switchGrayscale],
-			["Sepia", this.switchSepia], 
-			["Invert", this.switchInvert], 
-			["Contrast", this.switchContrast], 
+			["Sepia", this.switchSepia],
+			["Invert", this.switchInvert],
+			["Contrast", this.switchContrast],
 			["Huerotate", this.switchHuerotate]
 		]
 	}
@@ -89,17 +90,23 @@ class PanelContainer extends React.Component {
 	}
 
 	closePanel(){
-		console.log('close panel called')
-		this.props.dispatch(
-			actions.closePanel())
+		this.props.dispatch(actions.closePanel())
 	}
 
 	savePanel() {
 		//TODO: change new panel id
+		if (this.props.id === "newStrip" ) {
+			console.log('newStrip postPanel')
+			this.props.dispatch(actions.postPanel(this.props))
+		} else {
+			this.props.dispatch(actions.putPanel(this.props))
+		}
+
 		console.log(this.props)
-		this.props.dispatch(
-			actions.postPanel(this.props)
-		)
+		// this.props.dispatch(
+		// 	actions.postPanel(this.props)
+		// )
+		this.props.dispatch(actions.closePanel())
 	}
 
 	render () {
@@ -115,7 +122,7 @@ class PanelContainer extends React.Component {
       		</form>
       		<button className="edit-description-button">Edit description</button>
 				<ImageUpload onDrop={this.onImageDrop.bind(this)} />
-				<button className="save-panel-button">Save panel</button>
+				<button className="save-panel-button" onClick={this.savePanel}>Save panel</button>
 				<button className="cancel-panel-button" onClick={this.closePanel}>Cancel</button>
 			</div>
 		)
@@ -124,10 +131,11 @@ class PanelContainer extends React.Component {
 
 
 const mapStateToProps = (state, props) => ({
-  text: state.strip.panelInProgress.text,
+  text: 	state.strip.panelInProgress.text,
   imgUrl: state.strip.panelInProgress.imgUrl,
-  filter: state.strip.panelInProgress.filter
+  filter: state.strip.panelInProgress.filter,
+	_id:		state.strip.panelInProgress._id,
+	id:			state.strip.panelInProgress.id
 })
 
 export default connect(mapStateToProps)(PanelContainer)
-

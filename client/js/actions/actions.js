@@ -76,6 +76,33 @@ export const postPanel = panel => {
 	}
 }
 
+
+
+export const putPanel = panel => dispatch => {
+	console.log(panel)
+	const url = `http://localhost:8080/panel/${panel._id}`
+	return fetch(url, {
+		method: 'put',
+		headers: {
+			'Content-type': "application/json; charset=utf-8"
+		},
+		body: JSON.stringify(panel)
+	})
+	.then(response => {
+		if (!response.ok) {
+			const error = new Error(response.statusText)
+			error.response = response
+			throw error
+		}
+		return response
+	})
+	.then(response => response.json())
+	.then(data => dispatch(putPanelSuccess(data)))
+	.catch(error => dispatch(putPanelError(error)))
+
+}
+
+
 //delete panel success handled by getPanel()
 
 export const DELETE_PANEL_ERROR = 'DELETE_PANEL_ERROR';
@@ -126,22 +153,22 @@ export const APPLY_GRAYSCALE = 'APPLY_GRAYSCALE'
  export const applyGrayscale = ()=> ({
  type: APPLY_GRAYSCALE
  })
- 
+
  export const APPLY_INVERT = 'APPLY_INVERT'
  export const applyInvert = () => ({
  	type: APPLY_INVERT
  })
- 
+
 export const APPLY_CONTRAST = 'APPLY_CONTRAST'
 export const applyContrast = () => ({
  	type: APPLY_CONTRAST
  })
- 
+
  export const APPLY_HUEROTATE = 'APPLY_HUEROTATE'
  export const applyHuerotate = () => ({
  	type: APPLY_HUEROTATE
  })
- 
+
  export const APPLY_SEPIA = 'APPLY_SEPIA'
  export const applySepia = () => ({
  	type: APPLY_SEPIA
