@@ -25,8 +25,8 @@ export class IndividualBoard extends React.Component {
       return (
         <div className="indivBoard">
           <ul className="listOfPanels">
-            {panelsList}
             <ComicPreview content={this.props.newPanel}/>
+            {panelsList}
           </ul>
            {this.props.modalUp ? <PanelContainer /> : null}
         </div>
@@ -43,5 +43,3 @@ const mapStateToProps = (state, props) => ({
 })
 
 export default connect(mapStateToProps)(IndividualBoard)
-
-
