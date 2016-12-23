@@ -5,9 +5,7 @@ import Dropzone from 'react-dropzone';
 export default class ImageUpload extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = {
-			uploadFileCloundinaryUrl: ''
-		};
+	
 	}
 
 	render() {

@@ -56,7 +56,14 @@ class PanelContainer extends React.Component {
 
 	handleImageUpload(file) {
 		console.log('handleImageUpload happens')
-		let upload = request.post(CLOUDINARY_UPLOAD_URL)
+
+		// request.post(to my server ).then(do stuff with signature)
+		//signature attached to the end of cloudinary_url?
+
+		request.post('http://localhost:8080/photos')
+				
+		
+		let upload = request.post(CLOUDINARY_UPLOAD_URL) //with signature
 									.field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
 									.field('file', file)
 
@@ -130,13 +137,7 @@ class PanelContainer extends React.Component {
 		this.props.dispatch(actions.closePanel())
 	}
 
-		// handleSubmit (event) {
-	// 	event.preventDefault();
-	// 	this.setState({
-	// 		text: text.innerText.trim(),
-	// 		edits: "false"
-	// 	})
-	// }
+
 
 	saveTextInProgress() {
 		this.props.dispatch(actions.saveTextInProgress(text.innerText))

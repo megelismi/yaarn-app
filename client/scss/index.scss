@@ -4,12 +4,16 @@
 
 body {
   font-family: 'Lato', sans-serif;
-  background-color: #fbfbf2;
+  background-color: white;
 }
 
 h1 {
   font-family: 'Satisfy', cursive;
   font-size:30px;
+}
+
+.page-header {
+  text-align: center;
 }
 
 .listOfPanels{
@@ -26,8 +30,10 @@ h1 {
 
 .new-strip-panel-button {
   padding: 8px;
-	background-color: #fbfbf2;
-	border-radius: 40px;
+	background-color: white;
+	border-radius: 2px;
+  border: 1px solid black;
+  width: 85px; 
 
 }
 
@@ -139,6 +145,9 @@ img {
     margin-top: 13px;
 }
 
+.logo {
+  width: 100px;
+}
 
 .Blur {
     -webkit-filter: blur(3px);

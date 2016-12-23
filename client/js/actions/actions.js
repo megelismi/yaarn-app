@@ -69,6 +69,30 @@ export const postPanel = panel => {
 	}
 }
 
+export const postImage = panel => {
+	return dispatch => {
+		const url = "https://api.cloudinary.com/v1_1/megelismi/image/upload"
+		return fetch(url, {
+			method: 'post',
+			headers: {
+				'Content-type': "application/json; charset=utf-8"
+			},
+			body: JSON.stringify(panel)
+		})
+		.then(response => {
+			if (!response.ok) {
+				const error = new Error(response.statusText)
+				error.response = response
+				throw error
+			}
+			return response
+		})
+		.then(response => response.json())
+		.then(data => dispatch(postPanelSuccess(data)))
+		.catch(error => dispatch(postPanelError(error)))
+	}
+}
+
 export const PUT_PANEL_SUCCESS = "PUT_PANEL_SUCCESS"
 export const putPanelSuccess = panel => ({
 	type: PUT_PANEL_SUCCESS,
