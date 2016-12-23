@@ -1,8 +1,6 @@
 
 import React from 'react'
 import ImageUpload from './image-upload'
-import RichEditorExample from './text-editor'
-import LinkEditorExample from './test-editor'
 import {connect} from 'react-redux'
 import * as actions from '../actions/actions'
 import request from 'superagent';
@@ -153,11 +151,7 @@ class PanelContainer extends React.Component {
 				<div className="filter-button-container">
 				{this.filters2.map(([name, func]) => <button key={name} className="filter-button" onClick={func}>{name}</button>)}
 				</div>
-				{/*<form className="description-form">*/}
 					<div className="comic-text-box" contentEditable="true" onBlur={this.saveTextInProgress.bind(this)} suppressContentEditableWarning={true} ref={element => text = element}>{this.props.text}</div>
-				{/*<input className="save-description-button" type="submit" value="Save description" />
-      		</form>
-      		<button className="edit-description-button">Edit description</button>*/}
 				<ImageUpload onDrop={this.onImageDrop.bind(this)} />
 				<div className="save-cancel-button-container-panels">
 					<button className="save-panel-button" onClick={this.savePanel}>Save</button>
