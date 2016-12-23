@@ -2,9 +2,7 @@ import mongoose from 'mongoose'
 
 const stripSchema = mongoose.Schema({
   name: String,
-  panels: [
-      id: ObjectId
-  ]
+  panels: []
 })
 
 const Strip = mongoose.model('Strip', StripSchema)
