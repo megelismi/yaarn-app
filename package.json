@@ -1,6 +1,9 @@
 {
   "name": "tell-your-story",
   "version": "0.0.79",
+  "engines": {
+    "node": "6.3.1"
+  },
   "description": "Tell your personal story through photos, captions, and our special filters",
   "main": "index.js",
   "main:server": "server/index.js",
@@ -63,7 +66,7 @@
   },
   "author": "Nick Coleman <nick@itprojmgt.com>",
   "license": "UNLICENSED",
-  "devDependencies": {
+  "dependencies": {
     "babel-cli": "^6.11.4",
     "babel-loader": "^6.2.4",
     "babel-plugin-transform-object-rest-spread": "^6.8.0",
@@ -78,9 +81,7 @@
     "node-sass": "^3.8.0",
     "nodemon": "^1.10.0",
     "npm-run-all": "^3.0.0",
-    "webpack": "^1.13.1"
-  },
-  "dependencies": {
+    "webpack": "^1.13.1",
     "body-parser": "^1.15.2",
     "draft-js": "^0.9.1",
     "express": "^4.14.0",

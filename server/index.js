@@ -45,12 +45,6 @@ app.get('/panel/:id', jsonParser, (req, res) => {
   })
 })
 
-let panelObj = {
-  filter: "grayscale",
-	text: "Caption 2",
-	imgUrl: "http://cdn1-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-2.jpg",
-	edits: true
-}
 
 // create panel
 app.post('/panel', jsonParser, (req, res) => {
