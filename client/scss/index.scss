@@ -48,9 +48,9 @@ h1 {
   padding: 8px;
 	border-radius: 2px;
   width: 85px; 
-  background-color: #4877BA; 
+  background-color: #6287BA; 
   color: white;
-  border: 1px solid #4877BA;
+  border: 1px solid #6287BA;
 }
 
 button:hover {
@@ -70,6 +70,11 @@ button:hover {
   border-radius: 2px;
   height: 350px;
   max-width: 250px;
+  position: relative;
+  display: inline-flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
 
 }
 
@@ -78,15 +83,25 @@ button:hover {
 
 }
 
+.panel-button-container {
+  position: absolute;
+  bottom: 10px;
+  left: 5px;
+  width: 90%;
+  display: inline-flex;
+  justify-content: space-around;
+}
+
 .strip-button, .save-panel-button, .cancel-panel-button {
     height: 25px;
     border-radius: 2px;
     font-size: 75%;
-    background-color: #4877BA; 
-    color: white;
-    border: 1px solid #4877BA;
+    background-color: white; 
+    color: black;
+    border: 1px solid #6287BA;
 
 }
+
 
 .save-panel-button, .cancel-panel-button {
   width: 85px;

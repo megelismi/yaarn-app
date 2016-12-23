@@ -33,8 +33,10 @@ export class ComicPreview extends React.Component {
         <li>
           <div className="strip-panel-container"><img className={this.props.content.filter} id="strip-images" src={this.props.content.imgUrl} />
             <p className="strip-description">{this.props.content.text}</p>
-            <button className="strip-button" onClick={() => {this.editPanel(this.props.content)}}>Edit</button>
-            <button className="strip-button" onClick={() => {this.deletePanel(this.props.content._id)}}>Delete</button>
+            <div className="panel-button-container">
+              <button className="strip-button" onClick={() => {this.editPanel(this.props.content)}}>Edit</button>
+              <button className="strip-button" onClick={() => {this.deletePanel(this.props.content._id)}}>Delete</button>
+            </div>
           </div>
         </li>
       </div>
