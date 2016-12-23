@@ -38,7 +38,18 @@ class PanelContainer extends React.Component {
 
 	handleImageUpload(file) {
 		console.log('handleImageUpload happens')
-		let upload = request.post(CLOUDINARY_UPLOAD_URL)
+
+		// let upload = request.post(CLOUDINARY_UPLOAD_URL)
+
+
+		// request.post(to my server ).then(do stuff with signature)
+		//signature attached to the end of cloudinary_url?
+
+		// let upload = request.post('http://localhost:8080/photos')
+
+		
+		let upload = request.post(CLOUDINARY_UPLOAD_URL) //with signature
+
 									.field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
 									.field('file', file)
 

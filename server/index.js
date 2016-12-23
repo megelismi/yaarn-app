@@ -2,6 +2,7 @@ import 'babel-polyfill'
 import express from 'express'
 import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
+import crypto from 'crypto'
 
 // Mongoose
 import Panel from './models/panel'
@@ -16,6 +17,40 @@ const jsonParser = bodyParser.json();
 // Add API endpoints here
 
 app.use(express.static(process.env.CLIENT_PATH));
+
+
+// CLOUDINARY_API_KEY=284981691241697
+// CLOUDINARY_API_SECRET=X3Zzl3UWFCdbWfnSCHDWcZropUM
+
+// app.post('/photos', jsonParser, (req, res) => {
+//   const publicId = req.body.public_id; 
+//   const timestamp = Date.now();
+//   const apiSecret = CLOUDINARY_API_SECRET; 
+//   const signatureToSign = `public_id=$(publicId)&timestamp=$(timestamp)`
+//   const signature = crypto.makeSha1Digest(signatureToSign)
+//   res.send
+
+// })
+
+// endpoint for getting signatures for uplodaing to cloudinary
+// process.env.CLOUDINARY_API_KEY
+// process.env.CLOUDINARY_API_SECRET
+// app.post, jsonParser =>
+  // publicId = req.body.public_id
+  // timestamp = Date.now()
+  // apiSecret = process.env.CLODINARY_API_SECRET
+  // var signatureToSign = `public_id=${publicId}&timestamp=1315060510abcd` etc...
+  // var signature = crypto.makeSha1Digest(signatureToSign)
+  // 1784123fdba7637176
+  // "public_id=sample_image&timestamp=1315060510abcd"
+
+
+
+// Docs from cloudinary:
+//    All parameters should be included except the file, type, and resource_typeparameters, and the api_key.
+//    Make sure to include the timestamp.
+//    Sort the parameters by their names in alphabetical order.
+//    Separate the parameter names from their values with an = and join the parameter/value pairs together with an &.
 
 // ============ Panel ================
 

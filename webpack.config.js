@@ -49,6 +49,11 @@ module.exports = {
           exclude: /(node_modules)/,
           loader: 'babel',
         },
+        {
+          test: /\.png$/,
+          exclude: /(node_modules)/,
+          loader: 'file',
+        },
       ]
     },
     plugins: plugins

@@ -4,11 +4,18 @@
 
 body {
   font-family: 'Lato', sans-serif;
+  background-color: white;
 }
 
 h1 {
   font-family: 'Satisfy', cursive;
+  font-size:30px;
 }
+
+.page-header {
+  text-align: center;
+}
+
 .listOfPanels{
     display: inline-flex;
     flex-direction: row;
@@ -16,202 +23,207 @@ h1 {
     list-style: none;
 }
 
+.new-strip-panel {
+  margin-top: 20px;
+  text-align: center;
+}
 
-.strip-images {
-  padding: 15px; 
+.new-strip-panel-button {
+  padding: 8px;
+	background-color: white;
+	border-radius: 2px;
+  border: 1px solid darkgray;
+  width: 85px; 
+
+}
+
+.new-strip-panel-button:hover, .strip-button:hover, .save-panel-button:hover, .cancel-panel-button:hover {
+  background-color: #96CAFF;
+  border: 1px solid #96CAFF;
+  color: white;
+}
+
+.strip-images, #strip-images {
+  padding: 15px;
   width: 250px;
 }
 
-.strip-panel-img {
-  margin: 20px;
-  border: 1px solid black;
-  border-radius: 2px;
-  height: 350px;
-
+.strip-panel-container {
+    margin: 20px;
+    border: 2px solid #ED9C40;
+    border-radius: 2px;
+    height: 350px;
+    background-color: white;
+    color: black;
+    max-width: 250px;
+    max-height: 350px;
 }
 
 .strip-description {
-  padding-left: 14px; 
+  padding-left: 14px;
 
 }
 
-.strip-button {
-    margin-left: 12px;
-    width: 70px;
+
+.strip-button, .save-panel-button, .cancel-panel-button {
     height: 25px;
     border-radius: 2px;
     background-color: white;
-    font-size: 12px;
-    border: 1px solid black;
+    font-size: 75%;
+    border: 1.8px solid darkgray;
 }
 
-
-.story-description {
-    border: 1px black solid; 
-    width: 400px;
+.save-panel-button, .cancel-panel-button {
+  width: 85px;
 }
 
-.edit-button{
-    width: 41px;
+.strip-button {
+  margin-left: 12px;
+  width: 70px;
 }
 
-
-.placeholder {
-  color: lightgray;
+.strip_button_container {
+  
 }
 
-.text-box {
-	width: 400px;
-	height: auto;
+.image-upload {
+    width: 150px;
+    height: 85px;
+    border: 2px #ED9C40 dashed;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.image-upload p {
+  font-size: 14px;
+}
+
+.comic-text-box {
+    border: 1px #ED9C40 solid;
+    width: 90%;
+    max-height: 71px;
+    min-height: 70px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border-radius: 2px;
+    padding: 10px;
+    overflow: auto;
+}
+
+.filter-button {
+  margin-top: 10px;
+}
+
+.save-cancel-button-container-panels {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    height: auto;
+    margin-bottom: 13px;
+}
+
+.filter-button-container {
+  display: inline-flex;
+  flex-direction: row;
+    flex-wrap: wrap;
+    width: 90%;
+    height: auto;
+    margin: 20px;
+}
+
+.filter-button {
+  width: 80px;
+  font-size: 13px;
+  height: 21px;
 }
 
 
 .panel-container {
-	display: inline-flex;
-	flex-direction: column;
-	width: 500px;
-	height: 626px;
-  margin-left: -250px;
-  margin-top: -313px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 40vw;
+  height: 95vh;
   background-color: white;
   position: fixed;
-  top: 50%;
-  left: 50%;
+  top: 2.5%;
+  left: 30%;
   border: 1px gray solid;
   transition: opacity 500ms ease;
-  padding: 15px;
-}
-
-.button-container {
-	display: inline-flex;
-	flex-direction: row;
-}
-
-.filter-button {
-	width: 80px;
-	font-size: 13px;
-   height: 21px;
+  overflow: auto;
 }
 
 img {
-	width: 400px;
+    width: 90%;
+    max-width: 430px;
+    margin-top: 13px;
 }
 
-.blur {
+.logo {
+  width: 100px;
+}
+
+.Blur {
     -webkit-filter: blur(3px);
     filter: blur(3px);
 }
 
-.brightness {
+.Brightness {
     -webkit-filter: brightness(0.70);
     filter: brightness(0.70);
 }
 
-.contrast {
+.Contrast {
     -webkit-filter: contrast(180%);
     filter: contrast(180%);
 }
 
-.grayscale {
+.Grayscale {
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
 }
 
-.huerotate {
+.Huerotate {
     -webkit-filter: hue-rotate(180deg);
     filter: hue-rotate(180deg);
 }
 
-.save-description-button, .edit-description-button, .save-panel-button, .cancel-panel-button {
-  width: 100px;
+.Grapefruit {
+    -webkit-filter: hue-rotate(320deg);
+    filter: hue-rotate(320deg);
 }
 
-
-.RichEditor-root {
-  background: #fff;
-  border: 1px solid #ddd;
-  font-family: 'Georgia', serif;
-  font-size: 14px;
-  padding: 15px;
+.Hulk {
+    -webkit-filter: hue-rotate(40deg);
+    filter: hue-rotate(40deg);
 }
 
-.RichEditor-editor {
-  border-top: 1px solid #ddd;
-  cursor: text;
-  font-size: 16px;
-  margin-top: 10px;
+.Prince {
+    -webkit-filter: hue-rotate(240deg);
+    filter: hue-rotate(240deg);
 }
 
-.RichEditor-editor .public-DraftEditorPlaceholder-root,
-.RichEditor-editor .public-DraftEditor-content {
-  margin: 0 -15px -15px;
-  padding: 15px;
-}
-
-.RichEditor-editor .public-DraftEditor-content {
-  min-height: 100px;
-}
-
-.RichEditor-hidePlaceholder .public-DraftEditorPlaceholder-root {
-  display: none;
-}
-
-.RichEditor-editor .RichEditor-blockquote {
-  border-left: 5px solid #eee;
-  color: #666;
-  font-family: 'Hoefler Text', 'Georgia', serif;
-  font-style: italic;
-  margin: 16px 0;
-  padding: 10px 20px;
-}
-
-.RichEditor-editor .public-DraftStyleDefault-pre {
-  background-color: rgba(0, 0, 0, 0.05);
-  font-family: 'Inconsolata', 'Menlo', 'Consolas', monospace;
-  font-size: 16px;
-  padding: 20px;
-}
-
-.RichEditor-controls {
-  font-family: 'Helvetica', sans-serif;
-  font-size: 14px;
-  margin-bottom: 5px;
-  user-select: none;
-}
-
-.RichEditor-styleButton {
-  color: #999;
-  cursor: pointer;
-  margin-right: 16px;
-  padding: 2px 0;
-  display: inline-block;
-}
-
-.RichEditor-activeButton {
-  color: #5890ff;
-}
-
-.invert {
+.Invert {
     -webkit-filter: invert(100%);
     filter: invert(100%);
 }
 
-.opacity {
+.Opacity {
     -webkit-filter: opacity(50%);
     filter: opacity(50%);
 }
 
-.saturate {
+.Saturate {
     -webkit-filter: saturate(7);
     filter: saturate(7);
 }
 
-.sepia {
+.Sepia {
     -webkit-filter: sepia(100%);
     filter: sepia(100%);
 }
 
-.shadow {
+.Shadow {
     -webkit-filter: drop-shadow(8px 8px 10px gray);
     filter: drop-shadow(8px 8px 10px gray);
 }

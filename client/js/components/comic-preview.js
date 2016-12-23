@@ -31,17 +31,17 @@ export class ComicPreview extends React.Component {
   render() {
 
     return (
-      <li>
-        <div className="strip-panel-img"><img className="strip-images" src={this.props.content.imgUrl} />
-          <p className="strip-description">{this.props.content.text}</p>
-          {this.newPanelId === 'newStrip' ? <button className="strip-button" onClick={() => this.newPanel()}>New</button> :
-            <div>
+      <div>
+        <li>
+          <div className="strip-panel-container"><img className={this.props.content.filter} id="strip-images" src={this.props.content.imgUrl} />
+            <p className="strip-description">{this.props.content.text}</p>
+            <div className="strip_button_container">
               <button className="strip-button" onClick={() => {this.editPanel(this.props.content)}}>Edit</button>
               <button className="strip-button" onClick={() => {this.deletePanel(this.props.content._id)}}>Delete</button>
             </div>
-          }
-        </div>
-      </li>
+          </div>
+        </li>
+      </div>
     )
   }
 
