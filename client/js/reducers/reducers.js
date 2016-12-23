@@ -73,6 +73,11 @@ export const mainReducer = (state=initialState, action) => {
 		return update(state, {strip: {modalUp: {$set: true }, panelInProgress: {$set: newContent }}})
 	}
 
+	else if (action.type === actions.SAVE_FILTER_IN_PROGRESS) {
+		console.log('save_filter_action_reached!')
+		return update(state, {strip: {panelInProgress: {filter: {$set: action.filter}}}})
+	}
+
 	else if (action.type === actions.APPLY_GRAYSCALE) {
  		return update(state, {strip: {panelInProgress: {filter: {$set: "Grayscale"}}}})
  	}

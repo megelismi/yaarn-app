@@ -182,6 +182,12 @@ export const saveTextInProgress = text => ({
 	text
 })
 
+export const SAVE_FILTER_IN_PROGRESS = 'SAVE_FILTER_IN_PROGRESS'
+export const saveFilterInProgress = filter => ({
+	type: SAVE_FILTER_IN_PROGRESS, 
+	filter
+})
+
 export const SAVE_IMAGE_URL = 'SAVE_IMAGE_URL'
 export const saveImageUrl = url => ({
 	type: SAVE_IMAGE_URL,

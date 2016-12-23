@@ -9,11 +9,16 @@ const CLOUDINARY_UPLOAD_PRESET = 'e7zwclsa';
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/megelismi/upload';
 
 
+let value = ""
 let text = ""
 
 class PanelContainer extends React.Component {
 	constructor(props) {
 		super(props)
+
+		// this.state = {
+		// 	selectValue: 'Radish'
+		// }
 
 		this.switchGrayscale = this.switchGrayscale.bind(this)
 		this.switchInvert = this.switchInvert.bind(this)
@@ -135,22 +140,32 @@ class PanelContainer extends React.Component {
 		this.props.dispatch(actions.closePanel())
 	}
 
-
-
 	saveTextInProgress() {
 		this.props.dispatch(actions.saveTextInProgress(text.innerText))
 	}
+
+	 saveFilterInProgress (e) {
+    	this.props.dispatch(actions.saveFilterInProgress(e.target.value));
+  	}
 
 	render () {
 		return (
 			<div className="panel-container">
 				<img className={this.props.filter} src={this.props.imgUrl} />
-				<div className="filter-button-container">
-				{this.filters.map(([name, func]) => <button key={name} className="filter-button" onClick={func}>{name}</button>)}
-				</div>
-				<div className="filter-button-container">
-				{this.filters2.map(([name, func]) => <button key={name} className="filter-button" onClick={func}>{name}</button>)}
-				</div>
+				  <select
+				   value={value} 
+        			onChange={this.saveFilterInProgress.bind(this)}>
+			       	<option value="Grayscale">Grayscale</option>
+			        	<option value="Sepia">Sepia</option>
+			        	<option value="Invert">Invert</option>
+			        	<option value="Invert">Contrast</option>
+			        	<option value="Huerotate">Huerotate</option>
+			        	<option value="Saturate">Saturate</option>
+			        	<option value="Prince">Prince</option>
+			        	<option value="Hulk">Hulk</option>
+			        	<option value="Grapefruit">Grapefruit</option>
+			        	<option value="None">None</option>
+			      </select>
 					<div className="comic-text-box" contentEditable="true" onBlur={this.saveTextInProgress.bind(this)} suppressContentEditableWarning={true} ref={element => text = element}>{this.props.text}</div>
 				<ImageUpload onDrop={this.onImageDrop.bind(this)} />
 				<div className="save-cancel-button-container-panels">
@@ -172,3 +187,42 @@ const mapStateToProps = (state, props) => ({
 })
 
 export default connect(mapStateToProps)(PanelContainer)
+
+
+
+
+{/*var FruitSelector = React.createClass({
+    getInitialState:function(){
+      return {selectValue:'Radish'};
+  },
+    handleChange:function(e){
+    this.setState({selectValue:e.target.value});
+  },
+  render: function() {
+    var message='You selected '+this.state.selectValue;
+    return (
+      <div>
+      <select 
+        value={this.state.selectValue} 
+        onChange={this.handleChange} 
+      >
+       <option value="Orange">Orange</option>
+        <option value="Radish">Radish</option>
+        <option value="Cherry">Cherry</option>
+      </select>
+      <p>{message}</p>
+      </div>        
+    );
+  }
+});
+
+
+
+React.render(<FruitSelector name="World" />, document.body);/ */}
+
+{/*<div className="filter-button-container">
+				{this.filters.map(([name, func]) => <button key={name} className="filter-button" onClick={func}>{name}</button>)}
+				</div>
+				<div className="filter-button-container">
+				{this.filters2.map(([name, func]) => <button key={name} className="filter-button" onClick={func}>{name}</button>)}
+				</div>*/}
