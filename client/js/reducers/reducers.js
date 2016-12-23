@@ -13,7 +13,7 @@ const initialState = {
 				"id": "newStrip",
     		"filter": "",
     		"text": "Add your next masterpiece.",
-    		"imgUrl": "http://cdn3-www.cattime.com/assets/uploads/2011/08/best-kitten-names-1.jpg",
+    		"imgUrl": "assets/generic-image-placeholder.png",
     		"edits": false
   		},
   	modalUp: false,

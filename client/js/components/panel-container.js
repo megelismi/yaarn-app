@@ -82,7 +82,7 @@ class PanelContainer extends React.Component {
 		let options = this.filters.map(name => <option key={name} value={name} className="filter-option">{name}</option>)
 		return (
 			<div className="panel-container">
-				<img className={this.props.filter} src={this.props.imgUrl} />
+				<img id="upload-image" className={this.props.filter} src={this.props.imgUrl} />
 				  <select
 				  	className="filters-dropdown"
 				   selected={value} 
