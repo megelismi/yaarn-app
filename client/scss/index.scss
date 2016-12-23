@@ -22,6 +22,12 @@ h1 {
     list-style: none;
 }
 
+.filters-dropdown {
+  margin-top: 20px;
+  width: 150px;
+  min-height: 20px;
+}
+
 .new-strip-panel {
   margin-top: 20px;
   text-align: center;
@@ -135,10 +141,10 @@ button:hover {
   align-items: center;
   flex-direction: column;
   width: 40vw;
-  height: 95vh;
+  height: 90vh;
   background-color: white;
   position: fixed;
-  top: 2.5%;
+  top: 5%;
   left: 30%;
   border: 1px gray solid;
   transition: opacity 500ms ease;
