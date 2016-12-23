@@ -68,9 +68,12 @@ export const mainReducer = (state=initialState, action) => {
 		return update(state, {strip: {modalUp: {$set: false}}})
 	}
 	else if (action.type === actions.CREATE_NEW_PANEL) {
-		// console.log('new panel action called')
 		const newContent = state.strip.newPanel
 		return update(state, {strip: {modalUp: {$set: true }, panelInProgress: {$set: newContent }}})
+	}
+
+	else if (action.type === actions.SAVE_FILTER_IN_PROGRESS) {
+		return update(state, {strip: {panelInProgress: {filter: {$set: action.filter}}}})
 	}
 
 	else if (action.type === actions.APPLY_GRAYSCALE) {

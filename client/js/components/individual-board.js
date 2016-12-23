@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import * as actions from '../actions/actions.js';
 import PanelContainer from './panel-container'
 import ComicPreview from './comic-preview'
+import Header from './header'
 
 export class IndividualBoard extends React.Component {
   constructor(props) {
@@ -28,13 +29,16 @@ export class IndividualBoard extends React.Component {
 
       return (
         <div className="indivBoard">
+          <Header />
+          <hr />
           <div className="new-strip-panel">
-            <button className="new-strip-panel-button" onClick={() => this.newPanel()}>Create New Panel</button>
+            <button className="new-strip-panel-button" onClick={() => this.newPanel()}>New Panel</button>
           </div>
           <ul className="listOfPanels">
             {panelsList}
           </ul>
            {this.props.modalUp ? <PanelContainer /> : null}
+           {this.props.modalUp ? <div class="overlay"></div> : null}
         </div>
       )
     }
