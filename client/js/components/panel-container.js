@@ -5,11 +5,11 @@ import RichEditorExample from './text-editor'
 import LinkEditorExample from './test-editor'
 import {connect} from 'react-redux'
 import * as actions from '../actions/actions'
-import request from 'superagent';
+import request from 'superagent'
+import { SplitButton, MenuItem } from 'react-bootstrap'
 
 const CLOUDINARY_UPLOAD_PRESET = 'e7zwclsa';
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/megelismi/upload';
-
 
 let text = ""
 
@@ -35,17 +35,13 @@ class PanelContainer extends React.Component {
 			["Sepia", this.switchSepia],
 			["Invert", this.switchInvert],
 			["Contrast", this.switchContrast],
-			["Huerotate", this.switchHuerotate]
-		]
-
-		this.filters2 = [
+			["Huerotate", this.switchHuerotate],
 			["Saturate", this.switchSaturate],
 			["Prince", this.switchPrince],
 			["Hulk", this.switchHulk],
 			["Grapefruit", this.switchGrapefruit],
 			["None", this.switchNone]
 		]
-
 	}
 
 
@@ -142,16 +138,16 @@ class PanelContainer extends React.Component {
 		this.props.dispatch(actions.saveTextInProgress(text.innerText))
 	}
 
+
+
 	render () {
 		return (
 			<div className="panel-container">
 				<img className={this.props.filter} src={this.props.imgUrl} />
-				<div className="filter-button-container">
-				{this.filters.map(([name, func]) => <button key={name} className="filter-button" onClick={func}>{name}</button>)}
-				</div>
-				<div className="filter-button-container">
-				{this.filters2.map(([name, func]) => <button key={name} className="filter-button" onClick={func}>{name}</button>)}
-				</div>
+				<SplitButton title="Select Filter" pullRight id="split-button-pull-right">
+					{this.filters.map(([name, func]) =>
+						<MenuItem key={name} className="filter-button" onSelect={func}>{name}</MenuItem>)}
+				</SplitButton>
 				{/*<form className="description-form">*/}
 					<div className="comic-text-box" contentEditable="true" onBlur={this.saveTextInProgress.bind(this)} suppressContentEditableWarning={true} ref={element => text = element}>{this.props.text}</div>
 				{/*<input className="save-description-button" type="submit" value="Save description" />
