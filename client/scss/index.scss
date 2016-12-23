@@ -102,6 +102,20 @@ h1 {
 
 }
 
+.strip-button:hover, .save-panel-button:hover, .cancel-panel-button:hover {
+background-color: #eda301; 
+  color: white;
+  border: 1px solid #eda301;
+} 
+
+#upload-image {
+    width: 100%;
+    max-width: 430px;
+    margin-top: 13px;
+    padding: 35px;
+}
+
+
 
 .save-panel-button, .cancel-panel-button {
   width: 85px;
@@ -179,12 +193,6 @@ h1 {
   transition: opacity 500ms ease;
   overflow: auto;
   z-index: 11;
-}
-
-img {
-    width: 90%;
-    max-width: 430px;
-    margin-top: 13px;
 }
 
 .logo {

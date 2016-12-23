@@ -13,7 +13,7 @@ const initialState = {
 				"id": "newStrip",
     		"filter": "",
     		"text": "Add your next masterpiece.",
-    		"imgUrl": "",
+    		"imgUrl": "assets/generic-image-placeholder.png",
     		"edits": false
   		},
   	modalUp: false,
