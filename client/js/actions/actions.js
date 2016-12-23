@@ -16,7 +16,7 @@ export const getPanelError = error => ({
 
 export const getPanel = () => {
 	return dispatch => {
-		const url = "http://localhost:8080/panel"
+		const url = "/panel"
 		return fetch(url)
 		.then(response => {
 			if (!response.ok) {
@@ -47,7 +47,7 @@ export const postPanelError = error => ({
 
 export const postPanel = panel => {
 	return dispatch => {
-		const url = "http://localhost:8080/panel"
+		const url = "/panel"
 		return fetch(url, {
 			method: 'post',
 			headers: {
@@ -107,7 +107,7 @@ export const putPanelError = panel => ({
 
 export const putPanel = panel => dispatch => {
 	console.log(panel)
-	const url = `http://localhost:8080/panel/${panel._id}`
+	const url = `/panel/${panel._id}`
 	return fetch(url, {
 		method: 'put',
 		headers: {
@@ -142,7 +142,7 @@ export const deletePanelError = error => ({
 
 export const deletePanel = id => {
 	return dispatch => {
-		const url = `http://localhost:8080/panel/${id}`
+		const url = `/panel/${id}`
 		return fetch(url, {
 			method: 'delete'
 		})
