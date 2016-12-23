@@ -38,6 +38,7 @@ export class IndividualBoard extends React.Component {
             {panelsList}
           </ul>
            {this.props.modalUp ? <PanelContainer /> : null}
+           {this.props.modalUp ? <div class="overlay"></div> : null}
         </div>
       )
     }

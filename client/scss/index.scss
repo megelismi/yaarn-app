@@ -4,6 +4,17 @@
 
 body {
   font-family: 'Lato', sans-serif;
+  position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 10;
 }
 
 h1 {
@@ -35,16 +46,17 @@ h1 {
 
 .new-strip-panel-button {
   padding: 8px;
-	background-color: white;
 	border-radius: 2px;
-  border: 1px solid black;
   width: 85px; 
+  background-color: #4877BA; 
+  color: white;
+  border: 1px solid #4877BA;
 }
 
 button:hover {
-  background-color: #96CAFF; 
+  background-color: #1F5B96; 
   color: white;
-  border: 1px solid #96CAFF;
+  border: 1px solid #1F5B96;
 }
 
 .strip-images, #strip-images {
@@ -69,9 +81,11 @@ button:hover {
 .strip-button, .save-panel-button, .cancel-panel-button {
     height: 25px;
     border-radius: 2px;
-    background-color: white;
     font-size: 75%;
-    border: 1px solid black;
+    background-color: #4877BA; 
+    color: white;
+    border: 1px solid #4877BA;
+
 }
 
 .save-panel-button, .cancel-panel-button {
@@ -149,6 +163,7 @@ button:hover {
   border: 1px gray solid;
   transition: opacity 500ms ease;
   overflow: auto;
+  z-index: 11;
 }
 
 img {
