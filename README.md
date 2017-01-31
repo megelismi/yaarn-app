@@ -29,5 +29,5 @@ Yaarn is about knitting together the threads of your life. Yaarn makes it easy t
 
 ##Live Demo
 
-http://yaarn.herokuapp.com/
+https://yaarn.herokuapp.com/
 
