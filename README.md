@@ -22,3 +22,7 @@ Yaarn is about knitting together the threads of your life. Yaarn makes it easy t
 * Resources: mLab, Heroku, Cloudinary, Protoshare wireframing, Trello storyboarding
 * Features: responsive design, scrollable text boxes, drop down menu for filters, popup modal
 
+##yaarn Wireframe
+
+![yaarn-mockup.jpg](http://res.cloudinary.com/megelismi/image/upload/v1485826056/yaarn-mockup_stkff9.png)
+
