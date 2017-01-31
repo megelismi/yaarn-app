@@ -24,5 +24,7 @@ Yaarn is about knitting together the threads of your life. Yaarn makes it easy t
 
 ##yaarn Wireframe
 
-![yaarn-mockup.jpg](http://res.cloudinary.com/megelismi/image/upload/v1485826056/yaarn-mockup_stkff9.png)
+![yaarn-mockup.png](http://res.cloudinary.com/megelismi/image/upload/v1485826056/yaarn-mockup_stkff9.png)
+![yaarn-modal.png](http://res.cloudinary.com/megelismi/image/upload/v1485826392/yarn-modal_km4wmq.png)
+
 
