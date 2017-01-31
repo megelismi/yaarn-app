@@ -1,4 +1,3 @@
-# yaarn
 
 ![yaarn-header.jpg](http://res.cloudinary.com/megelismi/image/upload/v1485825682/yaarn-header_rmoglx.png)
 
@@ -6,7 +5,15 @@
 
 Yaarn is about knitting together the threads of your life. Yaarn makes it easy to layout the important moments in words and images. It also allows you to modify the memories to reflect the feel of the moments in a pictorial diary.
 
-## Getting started
+## yaarn features
+
+* Add new stories
+* Upload images and gifs
+* Apply image filters 
+* Add and edit descriptions 
+* Save your changes to the database (persistent)
+* Delete stories 
+
 
 ### Setting up a project
 
