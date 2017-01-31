@@ -1,6 +1,10 @@
-# Thinkful Full Stack Template
+# yaarn
 
-A template for developing and deploying full stack JavaScript apps.  Supports ES2015 on the client and server-side.
+![yaarn-header.jpg](./images/yaarn-header.jpg)
+
+## Why yaarn?
+
+Yaarn is about knitting together the threads of your life. Yaarn makes it easy to layout the important moments in words and images. It also allows you to modify the memories to reflect the feel of the moments in a pictorial diary.
 
 ## Getting started
 
