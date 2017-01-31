@@ -1,6 +1,6 @@
 # yaarn
 
-![yaarn-header.jpg](./images/yaarn-header.jpg)
+![yaarn-header.jpg](http://res.cloudinary.com/megelismi/image/upload/v1485825682/yaarn-header_rmoglx.png)
 
 ## Why yaarn?
 
